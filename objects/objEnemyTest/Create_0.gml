@@ -18,8 +18,3 @@ attackArray = ["stab", "cleave", "block"]
 
 nextAttackIndex = irandom(array_length(attackArray) - 1)
 nextAttack = attackArray[nextAttackIndex]
-
-
-//test
-
-//test 2

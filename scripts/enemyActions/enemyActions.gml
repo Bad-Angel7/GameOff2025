@@ -22,4 +22,6 @@ function enemyActions(action)
 	}
 	
 	actionUsed = true
+	with (objGameController)
+		alarm[0] = 120
 }

@@ -8,4 +8,5 @@ window_set_size(displayResolutionY, displayResolutionX)
 window_set_fullscreen(false)
 window_enable_borderless_fullscreen(false)
 
-global.playerTurn = true
+timerBuffer = room_speed * 5
+bonusTimer = room_speed * 10
