@@ -13,20 +13,3 @@ window_enable_borderless_fullscreen(false)
 timerBuffer = room_speed * 5
 bonusTimer = room_speed * 10
 
-paused = false
-
-pauseUpdate = function()
-{
-	if paused = true
-	{
-		instance_deactivate_all(true)
-		layer_set_visible("PauseLayer", true)
-	}
-	else
-	{
-		instance_activate_all()
-		layer_set_visible("PauseLayer", false)
-	}
-}
-
-pauseUpdate()

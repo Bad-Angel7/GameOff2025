@@ -23,8 +23,12 @@ if currentArmor > 0
 
 if global.currentAbility != noone
 {
-	draw_sprite_stretched(sprAbilityInfo, 0, objGameController.displayResolutionX / 8, global.currentAbility.y - (sprite_height - (128 + 84)), 384, 300)
+	layer_set_visible("AbilityLayer", true)
 	draw_text_ext_transformed(objPlayer.x - (64*5), objPlayer.y + 128, global.currentAbility.name + ": " + string(global.currentAbility.energyCost), 0, 160, 4, 4, 0)
+}
+else 
+{
+	layer_set_visible("AbilityLayer", false)
 }
 
 

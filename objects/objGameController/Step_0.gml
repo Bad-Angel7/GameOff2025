@@ -1,17 +1,10 @@
 /// @description Insert description here
 // You can write your code in this editor
 
-if keyboard_check_pressed(vk_escape)
-{
-	paused = !paused
-	pauseUpdate()
-	
-    //game_end()
-}
+
 
 if keyboard_check_pressed(vk_space)
 {
-	
 	if instance_exists(objEnemyTest)
 	{
 		with (objEnemyTest)
@@ -22,7 +15,6 @@ if keyboard_check_pressed(vk_space)
 		alarm[0] = 120
 	}
 
-	
 	timerBuffer= 0
 	bonusTimer = 0
 }
@@ -42,12 +34,12 @@ if keyboard_check_pressed(vk_f11)
 }
 
 
-if timerBuffer > 0 && paused != true
+if timerBuffer > 0 
 {
 	timerBuffer--
 }
 
-if bonusTimer > 0 && timerBuffer = 0 && paused != true
+if bonusTimer > 0 && timerBuffer = 0
 {
 	bonusTimer--
 }
