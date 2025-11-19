@@ -7,11 +7,11 @@ healthbarwidth = objGameController.displayResolutionX/4
 healthbarheight = objGameController.displayResolutionY/16
 //health bar pos based on screen
 //healthbarx = (100) - (healthbarwidth/2)
-healthbarx = (x) - (healthbarwidth/2)
+healthbarx = x - (sprite_width/2)
 //ystart - 100 is 100 pixels above player
 healthbary = y - sprite_height
 
-statusx = (x) - (healthbarwidth/2)
+statusx = x - (sprite_width/2)
 statusy = y + sprite_height
 
 //status1x = x - (sprite_width/2)
@@ -87,7 +87,9 @@ switch(nextAttack)
 }
 
 if currentHP <= 0
-{
+{	
+	nearestSpawn.spawnEmpty = true
+	
 	instance_destroy()
 }
 

@@ -6,9 +6,9 @@ healthbarwidth = objGameController.displayResolutionX
 healthbarheight = objGameController.displayResolutionY/8
 //health bar pos based on screen
 //healthbarx = (100) - (healthbarwidth/2)
-healthbarx = (960/2) - (healthbarwidth/2)
+healthbarx = xstart - sprite_width
 //ystart - 100 is 100 pixels above player
-healthbary = ystart - 100
+healthbary = ystart - sprite_height
 
 //Not working with code. Abilities are coming back as numbers and not objects
 //abilityArray = [1, 2, 3, 4, 5]

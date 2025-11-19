@@ -9,7 +9,8 @@ drenched = 0
 ignite = 0
 frost = 0
 activeStatuses = 0
-
+nearestSpawn = instance_nearest(x, y, objSpawn1)
+nearestSpawn.spawnEmpty = false
 
 timer = 0
 

@@ -3,4 +3,4 @@
 
 
 
-draw_text_ext_transformed(displayResolutionX * 2.5, displayResolutionY / 16, string(bonusTimer) / 60, 4, 64, 2, 2, 0)
+draw_text_ext_transformed(displayResolutionX / 1.25, view_yport, string(bonusTimer) / 60, 4, 64, 2, 2, 0)

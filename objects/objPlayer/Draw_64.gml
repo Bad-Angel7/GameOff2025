@@ -14,7 +14,7 @@
 //draw_sprite_stretched(sprHealthBarBorder, 0, healthbarx, healthbary, healthbarwidth, healthbarheight)
 
 draw_text_ext_transformed(healthbarx, healthbary, string(currentHP) + "/" + string(maxHP), 4, 64, 2, 2, 0)
-draw_text_ext_transformed(healthbarx - 256, healthbary, "Energy: " + string(currentEnergy), 16, 64, 2, 2, 0)
+draw_text_ext_transformed(healthbarx - (objGameController.displayResolutionX / 4), healthbary, "Energy: " + string(currentEnergy), 16, 64, 2, 2, 0)
 
 if currentArmor > 0 
 {
@@ -23,6 +23,7 @@ if currentArmor > 0
 
 if global.currentAbility != noone
 {
+	draw_sprite_stretched(sprAbilityInfo, 0, objGameController.displayResolutionX / 8, global.currentAbility.y - (sprite_height - (128 + 84)), 384, 300)
 	draw_text_ext_transformed(objPlayer.x - (64*5), objPlayer.y + 128, global.currentAbility.name + ": " + string(global.currentAbility.energyCost), 0, 160, 4, 4, 0)
 }
 
