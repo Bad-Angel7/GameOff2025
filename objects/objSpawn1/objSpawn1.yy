@@ -9,7 +9,10 @@
     "name":"Spawns",
     "path":"folders/Objects/Spawns.yy",
   },
-  "parentObjectId":null,
+  "parentObjectId":{
+    "name":"objSpawnParent",
+    "path":"objects/objSpawnParent/objSpawnParent.yy",
+  },
   "persistent":false,
   "physicsAngularDamping":0.1,
   "physicsDensity":0.5,

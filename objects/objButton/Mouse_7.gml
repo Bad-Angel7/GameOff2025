@@ -6,6 +6,7 @@ switch (buttonID)
 	case 1: // Resume
 		objGameController.paused = false
 		objGameController.pauseUpdate()
+		window_set_cursor(objPauseController.cursor)
 		break;
 	
 	case 2: // Restart
@@ -19,6 +20,7 @@ switch (buttonID)
 	case 4: // Settings
 		layer_set_visible("PauseLayer", false)
 		layer_set_visible("SettingsLayer", true)
+		window_set_cursor(objPauseController.cursor)
 		break;
 		
 	case 5: // Main Menu
@@ -32,5 +34,6 @@ switch (buttonID)
 	case 7: // Back
 		layer_set_visible("PauseLayer", true)
 		layer_set_visible("SettingsLayer", false)
+		window_set_cursor(objPauseController.cursor)
 		break;
 }

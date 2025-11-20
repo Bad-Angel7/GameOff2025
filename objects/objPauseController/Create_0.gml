@@ -1,8 +1,10 @@
 /// @description Insert description here
 // You can write your code in this editor
 
+cursor = cr_none
 
 paused = false
+musicVolume = 1
 
 
 fullscreenUpdate = function()
@@ -37,7 +39,7 @@ pauseUpdate = function()
 	{
 		instance_deactivate_all(true)
 		audio_pause_all()
-		audio_play_sound(sfxLoop, 0, true)
+		audio_play_sound(sfxLoop, 0, true, musicVolume)
 		layer_set_visible("PauseLayer", true)
 	}
 	else

@@ -12,7 +12,10 @@
     "name":"Abilities",
     "path":"folders/Objects/Abilities.yy",
   },
-  "parentObjectId":null,
+  "parentObjectId":{
+    "name":"objAbilityHostileParent",
+    "path":"objects/objAbilityHostileParent/objAbilityHostileParent.yy",
+  },
   "persistent":false,
   "physicsAngularDamping":0.1,
   "physicsDensity":0.5,

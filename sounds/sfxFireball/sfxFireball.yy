@@ -2,8 +2,8 @@
   "$GMSound":"v2",
   "%Name":"sfxFireball",
   "audioGroupId":{
-    "name":"audiogroup_default",
-    "path":"audiogroups/audiogroup_default",
+    "name":"agSFX",
+    "path":"audiogroups/agSFX",
   },
   "bitDepth":1,
   "channelFormat":0,
@@ -14,8 +14,8 @@
   "exportDir":"",
   "name":"sfxFireball",
   "parent":{
-    "name":"Sounds",
-    "path":"folders/Sounds.yy",
+    "name":"SFX",
+    "path":"folders/Sounds/SFX.yy",
   },
   "preload":false,
   "resourceType":"GMSound",

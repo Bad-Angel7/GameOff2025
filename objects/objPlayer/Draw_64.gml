@@ -39,6 +39,13 @@ if position_meeting(mouse_x, mouse_y, objEnemyTest)
 	enemySelect(target)
 }
 
+if position_meeting(mouse_x, mouse_y, objSkeleton)
+{
+	nearestEnemy = instance_nearest(mouse_x, mouse_y, objSkeleton)
+	var target = nearestEnemy
+	enemySelect(target)
+}
+
 if position_meeting(mouse_x, mouse_y, objPlayer)
 {
 	nearestPlayer = instance_nearest(mouse_x, mouse_y, objPlayer)

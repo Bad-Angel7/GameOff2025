@@ -8,11 +8,11 @@ image_alpha = 0.4 + enabled * 0.6
 switch (settingID)
 {
 	case 1: // Fullscreen
-		objGameController.fullscreenUpdate()
+		objPauseController.fullscreenUpdate()
 		break;
 	
 	case 2: // Borderless Window
-		objGameController.borderlessUpdate()
+		objPauseController.borderlessUpdate()
 		break;
 		
 	case 3: // Nothing

@@ -2,8 +2,8 @@
   "$GMSound":"v2",
   "%Name":"sfxPause",
   "audioGroupId":{
-    "name":"audiogroup_default",
-    "path":"audiogroups/audiogroup_default",
+    "name":"agMusic",
+    "path":"audiogroups/agMusic",
   },
   "bitDepth":1,
   "channelFormat":0,
@@ -14,13 +14,13 @@
   "exportDir":"",
   "name":"sfxPause",
   "parent":{
-    "name":"Sounds",
-    "path":"folders/Sounds.yy",
+    "name":"Music",
+    "path":"folders/Sounds/Music.yy",
   },
   "preload":false,
   "resourceType":"GMSound",
   "resourceVersion":"2.0",
   "sampleRate":44100,
   "soundFile":"sfxPause.mp3",
-  "volume":1.0,
+  "volume":0.23,
 }

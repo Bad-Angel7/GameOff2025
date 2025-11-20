@@ -6,12 +6,12 @@ function damageEnemy(damage, enemytodamage, multitarget, statusEffect)
 	//acquire target being hit and damage then accordingly
 	if multitarget == all
 	{
-		var enemies = instance_number(objEnemyTest)
+		var enemies = instance_number(objEnemyParent)
 		var enemyInstances = array_create(enemies)
 		
 		for (var i = 0; i < enemies; ++i)
 		{
-			enemyInstances[i] = instance_find(objEnemyTest, i)
+			enemyInstances[i] = instance_find(objEnemyParent, i)
 			target = enemyInstances[i]
 			target.currentHP -= damage		
 			

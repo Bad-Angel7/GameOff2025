@@ -2,8 +2,8 @@
   "$GMSound":"v2",
   "%Name":"sfxLoop",
   "audioGroupId":{
-    "name":"audiogroup_default",
-    "path":"audiogroups/audiogroup_default",
+    "name":"agMusic",
+    "path":"audiogroups/agMusic",
   },
   "bitDepth":1,
   "channelFormat":0,
@@ -14,8 +14,8 @@
   "exportDir":"",
   "name":"sfxLoop",
   "parent":{
-    "name":"Sounds",
-    "path":"folders/Sounds.yy",
+    "name":"Music",
+    "path":"folders/Sounds/Music.yy",
   },
   "preload":false,
   "resourceType":"GMSound",
