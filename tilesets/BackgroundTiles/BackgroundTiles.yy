@@ -1,0 +1,46 @@
+{
+  "$GMTileSet":"v1",
+  "%Name":"BackgroundTiles",
+  "autoTileSets":[],
+  "macroPageTiles":{
+    "SerialiseHeight":13,
+    "SerialiseWidth":21,
+    "TileCompressedData":[
+      -2,0,61,64,65,66,0,67,68,69,0,70,71,72,0,112,113,114,0,115,116,117,0,0,80,81,82,0,83,84,85,0,86,87,88,
+      0,128,129,130,0,131,132,133,0,0,96,97,98,0,99,100,101,0,102,103,104,0,144,145,146,0,147,148,149,-111,
+      0,7,73,74,0,75,76,0,106,-14,0,7,89,90,0,91,92,0,105,-31,0,18,134,135,136,0,160,161,0,162,163,0,164,165,
+      0,166,167,0,168,169,-3,0,19,150,151,152,0,176,177,0,178,179,0,180,181,0,182,183,0,184,185,0,
+    ],
+    "TileDataFormat":1,
+  },
+  "name":"BackgroundTiles",
+  "out_columns":14,
+  "out_tilehborder":2,
+  "out_tilevborder":2,
+  "parent":{
+    "name":"Game Off 2025",
+    "path":"Game Off 2025.yyp",
+  },
+  "resourceType":"GMTileSet",
+  "resourceVersion":"2.0",
+  "spriteId":{
+    "name":"_16x16_dungeon_tiles",
+    "path":"sprites/_16x16_dungeon_tiles/_16x16_dungeon_tiles.yy",
+  },
+  "spriteNoExport":false,
+  "textureGroupId":{
+    "name":"Default",
+    "path":"texturegroups/Default",
+  },
+  "tileAnimationFrames":[
+    {"$GMTileAnimation":"","%Name":"animationTorch","frames":[24,25,26,25,],"name":"animationTorch","resourceType":"GMTileAnimation","resourceVersion":"2.0",},
+  ],
+  "tileAnimationSpeed":4.0,
+  "tileHeight":64,
+  "tilehsep":0,
+  "tilevsep":0,
+  "tileWidth":64,
+  "tilexoff":0,
+  "tileyoff":0,
+  "tile_count":208,
+}

@@ -6,11 +6,8 @@ damage = 10
 energyCost = 2
 multitarget = all
 audio = sfxFireball
-canTargetPlayer = false
-
-
+canTargetEnemy = true
 
 ignite = true
-drenched = false
-frost = false
 statusEffect = ignite
+statusTurn = 2

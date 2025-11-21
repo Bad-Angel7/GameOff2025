@@ -9,5 +9,6 @@ currentEnergy = maxEnergy
 
 abilityUIToggle = false
 global.currentAbility = noone
+textIDType = noone
 
 audioTimer = 0

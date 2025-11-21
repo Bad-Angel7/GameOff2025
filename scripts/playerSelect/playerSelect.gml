@@ -2,5 +2,8 @@
 // https://help.yoyogames.com/hc/en-us/articles/360005277377 for more information
 function playerSelect(target)
 {
-	draw_sprite_stretched(sprEnemySelect, 0, target.x - target.sprite_xoffset, target.y - target.sprite_yoffset, target.sprite_width, target.sprite_height)
+	if variable_instance_exists(global.currentAbility, "canTargetPlayer")
+	{
+		draw_sprite_stretched(sprEnemySelect, 0, target.x - target.sprite_xoffset, target.y - target.sprite_yoffset, target.sprite_width, target.sprite_height)
+	}
 }

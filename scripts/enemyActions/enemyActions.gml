@@ -17,7 +17,7 @@ function enemyActions(action)
 	
 	if armor != noone
 	{
-		target = instance_nearest(x, y, objEnemyTest)
+		target = instance_nearest(x, y, objEnemyParent)
 		target.currentArmor += armor
 	}
 	

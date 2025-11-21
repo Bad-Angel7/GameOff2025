@@ -4,8 +4,8 @@
 switch (buttonID)
 {
 	case 1: // Resume
-		objGameController.paused = false
-		objGameController.pauseUpdate()
+		objPauseController.paused = false
+		objPauseController.pauseUpdate()
 		window_set_cursor(objPauseController.cursor)
 		break;
 	

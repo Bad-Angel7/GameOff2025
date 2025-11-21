@@ -2,8 +2,15 @@
 // https://help.yoyogames.com/hc/en-us/articles/360005277377 for more information
 function playerHealth(target, heal, armor)
 {
-	target.currentHP += heal
-	target.currentArmor += armor
+	if variable_instance_exists(global.currentAbility, "heal")
+	{
+		target.currentHP += heal
+	}
+	
+	if variable_instance_exists(global.currentAbility, "armor")
+	{
+		target.currentArmor += armor
+	}
 	
 	if target.currentHP > target.maxHP
 	{

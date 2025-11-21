@@ -5,16 +5,17 @@
 
 if keyboard_check_pressed(vk_space)
 {
-	if instance_exists(objEnemyTest)
+	if instance_exists(objEnemyParent)
 	{
-		with (objEnemyTest)
+		with (objEnemyParent)
 			alarm[0] = 60
 	}
 	else
 	{
 		alarm[0] = 120
 	}
-
+	
+	objPlayer.currentEnergy = 0
 	timerBuffer= 0
 	bonusTimer = 0
 }

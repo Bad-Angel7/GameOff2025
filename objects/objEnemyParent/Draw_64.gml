@@ -1,7 +1,6 @@
 /// @description Insert description here
 // You can write your code in this editor
 
-
 draw_text_ext_transformed(healthbarx, healthbary, string(currentHP) + "/" + string(maxHP), 4, 64, 2, 2, 0)
 
 draw_text_ext_transformed(statusx, statusy, string(nextAttack), 4, 64, 2, 2, 0)

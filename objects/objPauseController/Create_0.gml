@@ -41,6 +41,7 @@ pauseUpdate = function()
 		audio_pause_all()
 		audio_play_sound(sfxLoop, 0, true, musicVolume)
 		layer_set_visible("PauseLayer", true)
+		layer_set_visible("AbilityLayer", false)
 	}
 	else
 	{

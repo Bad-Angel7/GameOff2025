@@ -6,10 +6,9 @@ energyCost = 1
 damage = 5
 multitarget = all
 audio = noone
-canTargetPlayer = false
+canTargetEnemy = true
 
 
-ignite = false
 drenched = true
-frost = false
 statusEffect = drenched
+statusTurn = 3

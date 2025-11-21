@@ -24,14 +24,128 @@ if currentArmor > 0
 if global.currentAbility != noone
 {
 	layer_set_visible("AbilityLayer", true)
-	draw_text_ext_transformed(objPlayer.x - (64*5), objPlayer.y + 128, global.currentAbility.name + ": " + string(global.currentAbility.energyCost), 0, 160, 4, 4, 0)
+	var uiLayer = layer_get_flexpanel_node("AbilityLayer")
+	
+	//Name
+	var textPanelName = flexpanel_node_get_child(uiLayer, "AbilityName")
+	var textStructName = flexpanel_node_get_struct(textPanelName)
+	var textIDName = textStructName.layerElements[0].elementId
+	layer_text_text(textIDName, global.currentAbility.name)
+	
+	//Damage, Heal or Armor Text
+	var textPanelType = flexpanel_node_get_child(uiLayer, "AbilityType")
+	var textStructType = flexpanel_node_get_struct(textPanelType)
+	var textIDType = textStructType.layerElements[0].elementId
+	
+	if variable_instance_exists(global.currentAbility, "damage")
+	{
+		layer_text_text(textIDType, "Damage")
+	}
+	else if variable_instance_exists(global.currentAbility, "heal")
+	{
+		layer_text_text(textIDType, "Heal:")
+	}
+	else if variable_instance_exists(global.currentAbility, "armor")
+	{
+		layer_text_text(textIDType, "Armor:")
+	}
+	
+	
+	//Damage, Heal or Armor Numbers
+	var textPanelDamage = flexpanel_node_get_child(uiLayer, "DamageNumber")
+	var textStructDamage = flexpanel_node_get_struct(textPanelDamage)
+	var textIDDamage = textStructDamage.layerElements[0].elementId
+	
+	if variable_instance_exists(global.currentAbility, "damage")
+	{
+		layer_text_text(textIDDamage, global.currentAbility.damage)
+	}
+	else if variable_instance_exists(global.currentAbility, "heal")
+	{
+		layer_text_text(textIDDamage, global.currentAbility.heal)
+	}
+	else if variable_instance_exists(global.currentAbility, "armor")
+	{
+		layer_text_text(textIDDamage, global.currentAbility.armor)
+	}
+	
+	
+	//Energy Cost
+	var textPanelCost = flexpanel_node_get_child(uiLayer, "EnergyNumber")
+	var textStructCost = flexpanel_node_get_struct(textPanelCost)
+	var textIDCost = textStructCost.layerElements[0].elementId
+	layer_text_text(textIDCost, global.currentAbility.energyCost)
+	
+	//Status
+	var textPanelStatusType = flexpanel_node_get_child(uiLayer, "AbilityStatus")
+	var textStructStatusType = flexpanel_node_get_struct(textPanelStatusType)
+	var textIDStatusType = textStructStatusType.layerElements[0].elementId
+	
+	if variable_instance_exists(global.currentAbility, "ignite")
+	{
+		layer_text_text(textIDStatusType, "Ignite")
+	}
+	else if variable_instance_exists(global.currentAbility, "drenched")
+	{
+		layer_text_text(textIDStatusType, "Drenched")
+	}
+	else if variable_instance_exists(global.currentAbility, "frost")
+	{
+		layer_text_text(textIDStatusType, "Frost")
+	}
+	else //Should probably find a better way to toggle this??
+	{
+		layer_text_text(textIDStatusType, "")
+	}
+	
+	//Status turns
+	var textPanelStatusTurn = flexpanel_node_get_child(uiLayer, "StatusTurn")
+	var textStructStatusTurn = flexpanel_node_get_struct(textPanelStatusTurn)
+	var textIDStatusTurn = textStructStatusTurn.layerElements[0].elementId
+	
+	if variable_instance_exists(global.currentAbility, "statusTurn")
+	{
+		layer_text_text(textIDStatusTurn, global.currentAbility.statusTurn)
+	}
+	else
+	{
+		layer_text_text(textIDStatusTurn, "")
+	}
+	
+	//AOE Type
+	var textPanelAoeType = flexpanel_node_get_child(uiLayer, "AbilityAoe")
+	var textStructAoeType = flexpanel_node_get_struct(textPanelAoeType)
+	var textIDAoeType = textStructAoeType.layerElements[0].elementId
+	
+	if variable_instance_exists(global.currentAbility, "multitarget")
+	{
+		layer_text_text(textIDAoeType, "AOE")
+	}
+	else
+	{
+		layer_text_text(textIDAoeType, "")
+	}
+	
+	//AOE Status
+	var textPanelAoeStatus = flexpanel_node_get_child(uiLayer, "AoeName")
+	var textStructAoeStatus = flexpanel_node_get_struct(textPanelAoeStatus)
+	var textIDAoeStatus = textStructAoeStatus.layerElements[0].elementId
+	
+	if variable_instance_exists(global.currentAbility, "multitarget")
+	{
+		layer_text_text(textIDAoeStatus, "All")
+	}
+	else
+	{
+		layer_text_text(textIDAoeStatus, "")
+	}
 }
 else 
 {
 	layer_set_visible("AbilityLayer", false)
 }
 
-
+//parent?
 if position_meeting(mouse_x, mouse_y, objEnemyTest)
 {
 	nearestEnemy = instance_nearest(mouse_x, mouse_y, objEnemyTest)

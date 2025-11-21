@@ -38,9 +38,9 @@ if (position_meeting(mouse_x, mouse_y, objEnemyParent))
 		//On mouse button click, check to make sure an ability is selected and use said ability on target
 		if mouse_check_button_pressed(mb_left) && global.currentAbility != noone
 		{
-			if (currentEnergy - global.currentAbility.energyCost) > -1
+			if (currentEnergy - global.currentAbility.energyCost) > -1 && variable_instance_exists(global.currentAbility, "canTargetEnemy")
 			{
-				damageEnemy(global.currentAbility.damage, enemytodamage, global.currentAbility.multitarget, global.currentAbility.statusEffect)
+				damageEnemy(global.currentAbility.damage, enemytodamage)
 				audio_play_sound(global.currentAbility.audio, 0, 0)
 				currentEnergy -= global.currentAbility.energyCost
 			}
@@ -66,7 +66,17 @@ else if (position_meeting(mouse_x, mouse_y, objPlayer))
 			if (currentEnergy - global.currentAbility.energyCost) > -1
 			{
 				target = instance_nearest(mouse_x, mouse_y, objPlayer)
-				playerHealth(target, global.currentAbility.heal, global.currentAbility.armor)
+				
+				if variable_instance_exists(global.currentAbility, "heal")
+				{
+					playerHealth(target, global.currentAbility.heal, 0)
+				}
+				
+				if variable_instance_exists(global.currentAbility, "armor")
+				{
+					playerHealth(target, 0, global.currentAbility.armor)
+				}
+				
 				show_debug_message("Player armor " + string(currentArmor))
 				currentEnergy -= global.currentAbility.energyCost
 			}

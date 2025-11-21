@@ -1,10 +1,10 @@
-/// @description Insert description here
+/// @description Round ending / Enemy actions
 // You can write your code in this editor
 
 actionUsed = false
 currentArmor = 0
 
-var enemies = instance_number(objEnemyTest)
+var enemies = instance_number(objEnemyParent)
 var enemyInstances = array_create(enemies)
 
 for (var i = 0; i < enemies; ++i)

@@ -5,11 +5,9 @@
 name = "Frost Beam"
 damage = 5
 energyCost = 1
-multitarget = false
 audio = noone
-canTargetPlayer = false
+canTargetEnemy = true
 
 frost = true
-ignite = false
-drenched = false
 statusEffect = frost
+statusTurn = 4
