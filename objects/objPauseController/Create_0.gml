@@ -39,14 +39,14 @@ pauseUpdate = function()
 	{
 		instance_deactivate_all(true)
 		audio_pause_all()
-		audio_play_sound(sfxLoop, 0, true, musicVolume)
+		audio_play_sound(sfxPause2, 0, true, musicVolume)
 		layer_set_visible("PauseLayer", true)
 		layer_set_visible("AbilityLayer", false)
 	}
 	else
 	{
 		instance_activate_all()
-		audio_stop_sound(sfxLoop)
+		audio_stop_sound(sfxPause2)
 		audio_resume_all()
 		layer_set_visible("PauseLayer", false)
 		layer_set_visible("SettingsLayer", false)

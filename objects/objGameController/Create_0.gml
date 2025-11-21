@@ -4,6 +4,10 @@
 audio_group_load(agMusic)
 audio_group_load(agSFX)
 
+
+
+
+
 //Currently doesn't scale properly and Idk a fix :3
 displayResolutionY = (1920)
 displayResolutionX = (1080)
