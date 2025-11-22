@@ -5,5 +5,11 @@
 //audio_play_sound(sfxShop2, 0, true)
 if !audio_is_playing(sfxMainMenu)
 {
+	
 	audio_play_sound(sfxMainMenu, 0, true)
+}
+
+if audio_group_is_loaded(agMusic)
+{
+	show_debug_message("Music Loaded")
 }

@@ -7,10 +7,14 @@ switch (buttonID)
 		objPauseController.paused = false
 		objPauseController.pauseUpdate()
 		window_set_cursor(objPauseController.cursor)
+		menuAudioUpdate()
 		break;
 	
 	case 2: // Restart
-		
+	
+		///Crashes game with current UI for some reason
+		//room_goto(mainMenuRoom)
+		//room_goto(battleRoom)
 		break;
 		
 	case 3: // Index
@@ -22,27 +26,38 @@ switch (buttonID)
 		layer_set_visible("PauseLayer", false)
 		layer_set_visible("SettingsLayer", true)
 		window_set_cursor(objPauseController.cursor)
+		menuAudioUpdate()
 		break;
 		
 	case 5: // Main Menu
 		room_goto(mainMenuRoom)
 		objPauseController.paused = false
-		audio_stop_all()
+		if room != mainMenuRoom
+		{
+			audio_stop_all()
+			audio_play_sound(sfxMainMenu, 0, true)
+		}
+		menuAudioUpdate()
 		layer_set_visible("MainMenuLayer", true)
 		layer_set_visible("PauseLayer", false)
+		layer_set_visible("StatsLayer", false)
 		break;
 	
 	case 6: // Quit
+		menuAudioUpdate()
 		game_end()
 		break;
 		
 	case 7: // Back
+		menuAudioUpdate()
 		if room = mainMenuRoom
 		{
 			layer_set_visible("MainMenuLayer", true)
+			layer_set_visible("StatsLayer", false)
 		}else
 		{
 			layer_set_visible("PauseLayer", true)
+			layer_set_visible("StatsLayer", false)
 		}
 		layer_set_visible("SettingsLayer", false)
 		window_set_cursor(objPauseController.cursor)
@@ -51,7 +66,9 @@ switch (buttonID)
 	case 8: //New game
 		room_goto(battleRoom)
 		layer_set_visible("MainMenuLayer", false)
+		layer_set_visible("StatsLayer", true)
 		audio_stop_all()
+		menuAudioUpdate()
 		audio_play_sound(sfxMainThemeLoop, 0, true)
 		break;
 }

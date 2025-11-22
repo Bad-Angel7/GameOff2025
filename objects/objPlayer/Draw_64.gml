@@ -13,7 +13,7 @@
 ///draw health bar border
 //draw_sprite_stretched(sprHealthBarBorder, 0, healthbarx, healthbary, healthbarwidth, healthbarheight)
 
-draw_text_ext_transformed(healthbarx, healthbary, string(currentHP) + "/" + string(maxHP), 4, 64, 2, 2, 0)
+//draw_text_ext_transformed(healthbarx, healthbary, string(currentHP) + "/" + string(maxHP), 4, 64, 2, 2, 0)
 draw_text_ext_transformed(healthbarx - (objGameController.displayResolutionX / 4), healthbary, "Energy: " + string(currentEnergy), 16, 64, 2, 2, 0)
 
 if currentArmor > 0 
@@ -144,6 +144,15 @@ else
 {
 	layer_set_visible("AbilityLayer", false)
 }
+
+
+	var statsLayer = layer_get_flexpanel_node("StatsLayer")
+	var textPanelPlayerHealth = flexpanel_node_get_child(statsLayer, "PlayerHealthText")
+	var textStructPlayerHealth = flexpanel_node_get_struct(textPanelPlayerHealth)
+	var textIDPlayerHealth = textStructPlayerHealth.layerElements[0].elementId
+	layer_text_text(textIDPlayerHealth, string(currentHP) + " : " + string(maxHP))
+	
+
 
 //parent?
 if position_meeting(mouse_x, mouse_y, objEnemyTest)

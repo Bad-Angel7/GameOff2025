@@ -1,10 +1,13 @@
 /// @description Insert description here
 // You can write your code in this editor
-
 audio_group_load(agMusic)
 audio_group_load(agSFX)
+audio_group_load(agMenuClick)
 
-
+if !persistent
+{
+	persistent = true	
+}
 
 
 

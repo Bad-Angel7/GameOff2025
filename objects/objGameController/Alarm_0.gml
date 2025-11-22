@@ -1,7 +1,7 @@
 /// @description Timer
 // You can write your code in this editor
 
-
+objPlayer.currentArmor = 0
 objPlayer.currentEnergy = objPlayer.maxEnergy
 timerBuffer = game_get_speed(gamespeed_fps) * 3
 bonusTimer = game_get_speed(gamespeed_fps) * 10

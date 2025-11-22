@@ -5,7 +5,7 @@ name = "Water Blast"
 energyCost = 1
 damage = 5
 multitarget = all
-audio = noone
+audio = sfxWaterBlast
 canTargetEnemy = true
 
 

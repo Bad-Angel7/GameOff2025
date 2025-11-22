@@ -43,10 +43,10 @@
     {"$GMRTileLayer":"","%Name":"Foreground","depth":200,"effectEnabled":true,"effectType":null,"gridX":32,"gridY":32,"hierarchyFrozen":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritSubLayers":true,"inheritVisibility":true,"layers":[],"name":"Foreground","properties":[],"resourceType":"GMRTileLayer","resourceVersion":"2.0","tiles":{"SerialiseHeight":17,"SerialiseWidth":30,"TileCompressedData":[
           1,20,-28,34,2,21,19,-28,0,2,17,19,-3,0,2,166,167,-5,0,2,160,161,-10,0,8,164,165,0,0,168,169,17,19,-3,
           0,2,182,183,-5,0,2,176,177,-10,0,8,180,181,0,0,184,185,17,19,-8,0,1,24,-8,0,1,24,-10,0,2,17,19,-28,0,
-          6,17,19,64,65,66,24,-20,0,9,24,115,116,117,17,19,80,81,82,-22,0,8,131,132,133,17,19,96,97,98,-22,0,64,
-          147,148,149,17,134,135,136,134,135,136,134,135,136,134,135,136,134,135,136,134,135,136,134,135,136,134,
-          135,136,134,135,136,134,135,136,150,151,152,150,151,152,150,151,152,150,151,152,150,151,152,150,151,
-          152,150,151,152,150,151,152,150,151,152,150,151,152,-180,0,
+          7,17,19,64,65,66,24,111,-19,0,9,24,115,116,117,17,19,80,81,82,-22,0,8,131,132,133,17,19,96,97,98,-22,
+          0,64,147,148,149,17,134,135,136,134,135,136,134,135,136,134,135,136,134,135,136,134,135,136,134,135,
+          136,134,135,136,134,135,136,134,135,136,150,151,152,150,151,152,150,151,152,150,151,152,150,151,152,
+          150,151,152,150,151,152,150,151,152,150,151,152,150,151,152,-180,0,
         ],"TileDataFormat":1,},"tilesetId":{"name":"BackgroundTiles","path":"tilesets/BackgroundTiles/BackgroundTiles.yy",},"userdefinedDepth":false,"visible":true,"x":0,"y":0,},
     {"$GMRTileLayer":"","%Name":"BackgroundTiles","depth":300,"effectEnabled":true,"effectType":null,"gridX":32,"gridY":32,"hierarchyFrozen":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritSubLayers":true,"inheritVisibility":true,"layers":[],"name":"BackgroundTiles","properties":[],"resourceType":"GMRTileLayer","resourceVersion":"2.0","tiles":{"SerialiseHeight":17,"SerialiseWidth":30,"TileCompressedData":[
           -45,105,1,106,-47,105,1,106,-18,105,1,106,-4,105,1,106,-4,105,5,73,74,105,105,106,-11,105,4,106,105,

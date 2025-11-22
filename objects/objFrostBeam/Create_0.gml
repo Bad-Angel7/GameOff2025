@@ -5,7 +5,7 @@
 name = "Frost Beam"
 damage = 5
 energyCost = 1
-audio = noone
+audio = sfxFrostBeam
 canTargetEnemy = true
 
 frost = true

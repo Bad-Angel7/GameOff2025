@@ -1,6 +1,11 @@
 /// @description Insert description here
 // You can write your code in this editor
 
+if !persistent
+{
+	persistent = true	
+}
+
 cursor = cr_none
 
 paused = false
@@ -41,6 +46,7 @@ pauseUpdate = function()
 		audio_pause_all()
 		audio_play_sound(sfxPause2, 0, true, musicVolume)
 		layer_set_visible("PauseLayer", true)
+		layer_set_visible("StatsLayer", false)
 		layer_set_visible("AbilityLayer", false)
 	}
 	else
@@ -49,6 +55,10 @@ pauseUpdate = function()
 		audio_stop_sound(sfxPause2)
 		audio_resume_all()
 		layer_set_visible("PauseLayer", false)
+		if room = battleRoom
+		{
+			layer_set_visible("StatsLayer", true)
+		}
 		layer_set_visible("SettingsLayer", false)
 	}
 }

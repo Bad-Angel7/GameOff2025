@@ -3,7 +3,14 @@
 
 function damageEnemy(damage, enemytodamage)
 {
-	statusEffect = variable_instance_exists(global.currentAbility, "statusEffect")
+	if variable_instance_exists(global.currentAbility, "statusEffect")
+	{
+		statusEffect = variable_instance_exists(global.currentAbility, "statusEffect")
+	}
+	else statusEffect = noone
+	
+	//Resets the ability damage to what it SHOULD be since we are subtracting it after armor
+	abilityDamage = damage
 	
 	//acquire target being hit and damage then accordingly
 	if variable_instance_exists(global.currentAbility, "multitarget")
@@ -17,8 +24,28 @@ function damageEnemy(damage, enemytodamage)
 			{
 				enemyInstances[i] = instance_find(objEnemyParent, i)
 				target = enemyInstances[i]
-				target.currentHP -= damage		
-			
+				damage = abilityDamage
+				
+				if target.currentArmor !=0 
+				{
+					var damageReduction = target.currentArmor
+					target.currentArmor -= damage
+					if target.currentArmor < 0
+					{
+						target.currentArmor = 0
+					}
+					damage -= damageReduction
+					if damage < 0 
+					{
+						damage = 0
+					}
+				}
+				
+				if target.currentArmor <= 0
+				{
+					target.currentHP -= damage
+				}
+				
 				//Check if there is a status effect to reduce amount of checks required
 				if statusEffect != noone
 				{
@@ -47,7 +74,27 @@ function damageEnemy(damage, enemytodamage)
 	else
 	{
 		target = enemytodamage
-		target.currentHP -= damage
+		if target.currentArmor !=0 
+		{
+			var damageReduction = target.currentArmor
+			target.currentArmor -= damage
+			if target.currentArmor < 0
+			{
+				target.currentArmor = 0
+			}
+			damage -= damageReduction
+			if damage < 0 
+			{
+				damage = 0
+			}
+		}
+		
+		if target.currentArmor <= 0
+		{
+			target.currentHP -= damage
+		}
+		
+
 		
 		if statusEffect == variable_instance_exists(global.currentAbility, "frost")
 		{

@@ -16,7 +16,7 @@ if keyboard_check_pressed(vk_f12)
 	{
 		room_goto(battleRoom)
 		audio_stop_all()
-		audio_play_sound(sfxMainThemeLoop, 0, true)
+		audio_play_sound(sfxMainThemeLoop, 0, true, musicVolume)
 	}
 }
 
