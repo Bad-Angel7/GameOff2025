@@ -9,7 +9,7 @@ if !persistent
 	persistent = true	
 }
 
-
+waveCounter = 1
 
 //Currently doesn't scale properly and Idk a fix :3
 displayResolutionY = (1920)
@@ -19,6 +19,9 @@ window_set_size(displayResolutionY, displayResolutionX)
 window_set_fullscreen(false)
 window_enable_borderless_fullscreen(false)
 
+
 timerBuffer = game_get_speed(gamespeed_fps) * 5
 bonusTimer = game_get_speed(gamespeed_fps) * 10
+
+
 

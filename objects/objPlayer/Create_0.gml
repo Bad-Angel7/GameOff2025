@@ -7,6 +7,8 @@ currentArmor = 0
 maxEnergy = 4
 currentEnergy = maxEnergy
 
+playerAlive = true
+
 abilityUIToggle = false
 global.currentAbility = noone
 textIDType = noone

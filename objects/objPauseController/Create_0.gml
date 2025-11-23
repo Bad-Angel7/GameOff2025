@@ -48,6 +48,7 @@ pauseUpdate = function()
 		layer_set_visible("PauseLayer", true)
 		layer_set_visible("StatsLayer", false)
 		layer_set_visible("AbilityLayer", false)
+		layer_set_visible("AbilityIconsLayer", false)
 	}
 	else
 	{
@@ -58,6 +59,7 @@ pauseUpdate = function()
 		if room = battleRoom
 		{
 			layer_set_visible("StatsLayer", true)
+			layer_set_visible("AbilityIconsLayer", true)
 		}
 		layer_set_visible("SettingsLayer", false)
 	}

@@ -1,7 +1,7 @@
 /// @description Insert description here
 // You can write your code in this editor
 
-maxHP = 40
+maxHP = 40 + (4 * objGameController.waveCounter - 4)
 currentHP = maxHP
 currentArmor = 0
 

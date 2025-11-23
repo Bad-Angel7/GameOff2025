@@ -4,7 +4,7 @@
 maxValue = 100
 amountCurrent = 0
 isHeld = false
-global.musicVolume = 50
+global.musicVolume = 10
 
 switch(setting)
 {

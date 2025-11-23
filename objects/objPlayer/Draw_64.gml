@@ -145,7 +145,7 @@ else
 	layer_set_visible("AbilityLayer", false)
 }
 
-
+	//HP
 	var statsLayer = layer_get_flexpanel_node("StatsLayer")
 	var textPanelPlayerHealth = flexpanel_node_get_child(statsLayer, "PlayerHealthText")
 	var textStructPlayerHealth = flexpanel_node_get_struct(textPanelPlayerHealth)
@@ -155,16 +155,9 @@ else
 
 
 //parent?
-if position_meeting(mouse_x, mouse_y, objEnemyTest)
+if position_meeting(mouse_x, mouse_y, objEnemyParent)
 {
-	nearestEnemy = instance_nearest(mouse_x, mouse_y, objEnemyTest)
-	var target = nearestEnemy
-	enemySelect(target)
-}
-
-if position_meeting(mouse_x, mouse_y, objSkeleton)
-{
-	nearestEnemy = instance_nearest(mouse_x, mouse_y, objSkeleton)
+	nearestEnemy = instance_nearest(mouse_x, mouse_y, objEnemyParent)
 	var target = nearestEnemy
 	enemySelect(target)
 }
@@ -189,18 +182,18 @@ if keyboard_check_pressed(ord("1"))
 {
 	if abilityUIToggle == false
 	{
-		global.currentAbility = objMagicMissle
+		global.currentAbility = objAbility1
 		global.ability = global.currentAbility
 	}
 
-	if abilityUIToggle == true && global.currentAbility == objMagicMissle
+	if abilityUIToggle == true && global.currentAbility == objAbility1
 	{
 		global.currentAbility = noone
 		global.ability = global.currentAbility
 	}
-	else if abilityUIToggle == true && global.currentAbility != objMagicMissle
+	else if abilityUIToggle == true && global.currentAbility != objAbility1
 	{
-		global.currentAbility = objMagicMissle
+		global.currentAbility = objAbility1
 		global.ability = global.currentAbility
 	}
 }
@@ -208,18 +201,18 @@ else if keyboard_check_pressed(ord("2"))
 {
 	if abilityUIToggle == false
 	{
-		global.currentAbility = objFireball
+		global.currentAbility = objAbility2
 		global.ability = global.currentAbility
 	}
 
-	if abilityUIToggle == true && global.currentAbility == objFireball
+	if abilityUIToggle == true && global.currentAbility == objAbility2
 	{
 		global.currentAbility = noone
 		global.ability = global.currentAbility
 	}
-	else if abilityUIToggle == true && global.currentAbility != objFireball
+	else if abilityUIToggle == true && global.currentAbility != objAbility2
 	{
-		global.currentAbility = objFireball
+		global.currentAbility = objAbility2
 		global.ability = global.currentAbility
 	}
 }
@@ -227,18 +220,18 @@ else if keyboard_check_pressed(ord("3"))
 {
 	if abilityUIToggle == false
 	{
-		global.currentAbility = objWaterBlast
+		global.currentAbility = objAbility3
 		global.ability = global.currentAbility
 	}
 
-	if abilityUIToggle == true && global.currentAbility == objWaterBlast
+	if abilityUIToggle == true && global.currentAbility == objAbility3
 	{
 		global.currentAbility = noone
 		global.ability = global.currentAbility
 	}
-	else if abilityUIToggle == true && global.currentAbility != objWaterBlast
+	else if abilityUIToggle == true && global.currentAbility != objAbility3
 	{
-		global.currentAbility = objWaterBlast
+		global.currentAbility = objAbility3
 		global.ability = global.currentAbility
 	}
 }
@@ -246,18 +239,18 @@ else if keyboard_check_pressed(ord("4"))
 {
 	if abilityUIToggle == false
 	{
-		global.currentAbility = objFrostBeam
+		global.currentAbility = objAbility4
 		global.ability = global.currentAbility
 	}
 
-	if abilityUIToggle == true && global.currentAbility == objFrostBeam
+	if abilityUIToggle == true && global.currentAbility == objAbility4
 	{
 		global.currentAbility = noone
 		global.ability = global.currentAbility
 	}
-	else if abilityUIToggle == true && global.currentAbility != objFrostBeam
+	else if abilityUIToggle == true && global.currentAbility != objAbility4
 	{
-		global.currentAbility = objFrostBeam
+		global.currentAbility = objAbility4
 		global.ability = global.currentAbility
 	}
 }
@@ -265,99 +258,99 @@ else if keyboard_check_pressed(ord("5"))
 {
 	if abilityUIToggle == false
 	{
-		global.currentAbility = objShield
+		global.currentAbility = objAbility5
 		global.ability = global.currentAbility
 	}
 
-	if abilityUIToggle == true && global.currentAbility == objShield
+	if abilityUIToggle == true && global.currentAbility == objAbility5
 	{
 		global.currentAbility = noone
 		global.ability = global.currentAbility
 	}
-	else if abilityUIToggle == true && global.currentAbility != objShield
+	else if abilityUIToggle == true && global.currentAbility != objAbility5
 	{
-		global.currentAbility = objShield
+		global.currentAbility = objAbility5
 		global.ability = global.currentAbility
 	}
 }
-else if (position_meeting(mouse_x, mouse_y, objMagicMissle))
-{
-	global.ability = instance_nearest(mouse_x, mouse_y, objMagicMissle)
+//else if (position_meeting(mouse_x, mouse_y, objMagicMissle))
+//{
+//	global.ability = instance_nearest(mouse_x, mouse_y, objMagicMissle)
 	
-	//Show ID of current target to check if correct
-	if debugShown == false
-	{
-		show_debug_message(global.ability.id)
-		debugShown = true
-	}
-}
-else if (position_meeting(mouse_x, mouse_y, objMagicMissle))
-{
-	global.ability = instance_nearest(mouse_x, mouse_y, objMagicMissle)
+//	//Show ID of current target to check if correct
+//	if debugShown == false
+//	{
+//		show_debug_message(global.ability.id)
+//		debugShown = true
+//	}
+//}
+//else if (position_meeting(mouse_x, mouse_y, objMagicMissle))
+//{
+//	global.ability = instance_nearest(mouse_x, mouse_y, objMagicMissle)
 	
-	//Show ID of current target to check if correct
-	if debugShown == false
-	{
-		show_debug_message(global.ability.id)
-		debugShown = true
-	}
-}
-else if (position_meeting(mouse_x, mouse_y, objFireball))
-{
-	global.ability = instance_nearest(mouse_x, mouse_y, objFireball)
+//	//Show ID of current target to check if correct
+//	if debugShown == false
+//	{
+//		show_debug_message(global.ability.id)
+//		debugShown = true
+//	}
+//}
+//else if (position_meeting(mouse_x, mouse_y, objFireball))
+//{
+//	global.ability = instance_nearest(mouse_x, mouse_y, objFireball)
 	
-	//Show ID of current target to check if correct
-	if debugShown == false
-	{
-		show_debug_message(global.ability.id)
-		debugShown = true
-	}
-}
-else if (position_meeting(mouse_x, mouse_y, objWaterBlast))
-{
-	global.ability = instance_nearest(mouse_x, mouse_y, objWaterBlast)
+//	//Show ID of current target to check if correct
+//	if debugShown == false
+//	{
+//		show_debug_message(global.ability.id)
+//		debugShown = true
+//	}
+//}
+//else if (position_meeting(mouse_x, mouse_y, objWaterBlast))
+//{
+//	global.ability = instance_nearest(mouse_x, mouse_y, objWaterBlast)
 	
-	//Show ID of current target to check if correct
-	if debugShown == false
-	{
-		show_debug_message(global.ability.id)
-		debugShown = true
-	}
-}
-else if (position_meeting(mouse_x, mouse_y, objFrostBeam))
-{
-	global.ability = instance_nearest(mouse_x, mouse_y, objFrostBeam)
+//	//Show ID of current target to check if correct
+//	if debugShown == false
+//	{
+//		show_debug_message(global.ability.id)
+//		debugShown = true
+//	}
+//}
+//else if (position_meeting(mouse_x, mouse_y, objFrostBeam))
+//{
+//	global.ability = instance_nearest(mouse_x, mouse_y, objFrostBeam)
 	
-	//Show ID of current target to check if correct
-	if debugShown == false
-	{
-		show_debug_message(global.ability.id)
-		debugShown = true
-	}
-}
-else if (position_meeting(mouse_x, mouse_y, objShield))
-{
-	global.ability = instance_nearest(mouse_x, mouse_y, objShield)
+//	//Show ID of current target to check if correct
+//	if debugShown == false
+//	{
+//		show_debug_message(global.ability.id)
+//		debugShown = true
+//	}
+//}
+//else if (position_meeting(mouse_x, mouse_y, objShield))
+//{
+//	global.ability = instance_nearest(mouse_x, mouse_y, objShield)
 	
-	//Show ID of current target to check if correct
-	if debugShown == false
-	{
-		show_debug_message(global.ability.id)
-		debugShown = true
-	}
-}
-else if global.currentAbility == noone
-{
-	global.ability = noone
-}
+//	//Show ID of current target to check if correct
+//	if debugShown == false
+//	{
+//		show_debug_message(global.ability.id)
+//		debugShown = true
+//	}
+//}
+//else if global.currentAbility == noone
+//{
+//	global.ability = noone
+//}
 
-if global.ability != noone
+if global.currentAbility != noone
 {
-	abilitySelect(global.ability)
+	abilitySelect(global.currentAbility)
 	abilityUIToggle = true
 }
 
-if global.ability == noone
+if global.currentAbility == noone
 {
 	abilityUIToggle = false
 }

@@ -19,11 +19,23 @@ if keyboard_check_pressed(vk_f12)
 		audio_play_sound(sfxMainThemeLoop, 0, true, musicVolume)
 	}
 }
-
 if keyboard_check_pressed(vk_space)
 {
+	objPlayer.currentEnergy = 0
 	if instance_exists(objEnemyParent)
 	{
+		var enemies = instance_number(objEnemyParent)
+		var enemyInstances = array_create(enemies)
+		
+		for (var i = 0; i < enemies; ++i)
+		{
+			enemyInstances[i] = instance_find(objEnemyParent, i)
+			target = enemyInstances[i]
+			if target.ignite > 0
+			{
+				target.currentHP -= target.ignite
+			}
+		}
 		with (objEnemyParent)
 			alarm[0] = 60
 	}
@@ -31,6 +43,7 @@ if keyboard_check_pressed(vk_space)
 	{
 		alarm[0] = 120
 	}
+
 	
 	objPlayer.currentEnergy = 0
 	timerBuffer= 0
@@ -51,13 +64,33 @@ if keyboard_check_pressed(vk_f11)
 	}
 }
 
-
-if timerBuffer > 0 
+if instance_exists(objPlayer)
 {
-	timerBuffer--
+	if objPlayer.currentHP <= 0 && objPlayer.playerAlive = true
+	{
+		//Play Death animation
+		objPlayer.playerAlive = false
+		instance_destroy(objPlayer)
+		instance_destroy(objEnemyParent)
+		layer_set_visible("StatsLayer", false)
+		layer_set_visible("AbilityIconsLayer", false)
+		layer_set_visible("AbilityLayer", false)
+		layer_set_visible("DeathLayer", true)
+		audio_stop_all()
+		audio_play_sound(sfxLoop, 0, true)
+	}
 }
 
-if bonusTimer > 0 && timerBuffer = 0
+
+if room = battleRoom && objPauseController.paused = false
 {
-	bonusTimer--
+	if timerBuffer > 0 
+	{
+		timerBuffer--
+	}
+
+	if bonusTimer > 0 && timerBuffer = 0
+	{
+		bonusTimer--
+	}
 }

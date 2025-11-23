@@ -7,7 +7,7 @@ draw_text_ext_transformed(statusx, statusy, string(nextAttack), 4, 64, 2, 2, 0)
 
 if damage != noone
 {
-	draw_text_ext_transformed(statusx, statusy + 32,"Damage: " + string(damage), 16, 64, 2, 2, 0)
+	draw_text_ext_transformed(statusx, statusy + 32,"Damage: " + string(damageText), 16, 64, 2, 2, 0)
 }
 
 
@@ -25,15 +25,15 @@ if currentArmor > 0
 
 if drenched > 0 
 {
-	draw_sprite_stretched(sprDrenched, 0, drenchedx, drenchedy, 64, 64)
+	draw_sprite_stretched(sprDrenched, 0, drenchedx, drenchedy, 32, 32)
 }
 
 if ignite > 0 
 {
-	draw_sprite_stretched(sprIgnite, 0, ignitex, ignitey, 64, 64)
+	draw_sprite_stretched(sprIgnite, 0, ignitex, ignitey, 32, 32)
 }
 
 if frost > 0 
 {
-	draw_sprite_stretched(sprFrost, 0, frostx, frosty, 64, 64)
+	draw_sprite_stretched(sprFrost, 0, frostx, frosty, 32, 32)
 }

@@ -6,7 +6,9 @@
   ],
   "managed":true,
   "name":"objFrostBeam",
-  "overriddenProperties":[],
+  "overriddenProperties":[
+    {"$GMOverriddenProperty":"v1","%Name":"","name":"","objectId":{"name":"objAbilityParent","path":"objects/objAbilityParent/objAbilityParent.yy",},"propertyId":{"name":"abilityChoice","path":"objects/objAbilityParent/objAbilityParent.yy",},"resourceType":"GMOverriddenProperty","resourceVersion":"2.0","value":"\"FrostBeam\"",},
+  ],
   "parent":{
     "name":"Abilities",
     "path":"folders/Objects/Abilities.yy",
@@ -33,8 +35,8 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"sprAbility",
-    "path":"sprites/sprAbility/sprAbility.yy",
+    "name":"sprFrostBeam",
+    "path":"sprites/sprFrostBeam/sprFrostBeam.yy",
   },
   "spriteMaskId":null,
   "visible":true,

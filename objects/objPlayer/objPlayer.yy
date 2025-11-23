@@ -33,8 +33,8 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"PlayerPlaceholder",
-    "path":"sprites/PlayerPlaceholder/PlayerPlaceholder.yy",
+    "name":"sprCatWitch",
+    "path":"sprites/sprCatWitch/sprCatWitch.yy",
   },
   "spriteMaskId":null,
   "visible":true,

@@ -35,11 +35,21 @@ switch(nextAttack)
 {
 	case "stab":
 		damage = 5
+		damageText = damage
+		if frost > 0
+		{
+			damageText = round(damage * .70)
+		}
 		armor = noone
 		break;
 		
 	case "cleave": 
 		damage = 10
+		damageText = damage
+		if frost > 0
+		{
+			damageText = round(damage * .70)
+		}
 		armor = noone
 		break;
 		

@@ -7,7 +7,10 @@
   ],
   "managed":true,
   "name":"objMagicMissle",
-  "overriddenProperties":[],
+  "overriddenProperties":[
+    {"$GMOverriddenProperty":"v1","%Name":"","name":"","objectId":{"name":"objAbilityParent","path":"objects/objAbilityParent/objAbilityParent.yy",},"propertyId":{"name":"abilityChoice","path":"objects/objAbilityParent/objAbilityParent.yy",},"resourceType":"GMOverriddenProperty","resourceVersion":"2.0","value":"\"MagicMissle\"",},
+    {"$GMOverriddenProperty":"v1","%Name":"","name":"","objectId":{"name":"objAbilityParent","path":"objects/objAbilityParent/objAbilityParent.yy",},"propertyId":{"name":"damage","path":"objects/objAbilityParent/objAbilityParent.yy",},"resourceType":"GMOverriddenProperty","resourceVersion":"2.0","value":"15",},
+  ],
   "parent":{
     "name":"Abilities",
     "path":"folders/Objects/Abilities.yy",
@@ -34,8 +37,8 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"sprAbility",
-    "path":"sprites/sprAbility/sprAbility.yy",
+    "name":"sprMagicMissle",
+    "path":"sprites/sprMagicMissle/sprMagicMissle.yy",
   },
   "spriteMaskId":null,
   "visible":true,

@@ -3,15 +3,32 @@
 function enemyActions(action)
 {
 	if damage != noone
-	{
-		if objPlayer. currentArmor <= 0
+	{	
+		if frost > 0
 		{
-			objPlayer.currentHP -= damage
+			damage = round(damage * .70) 
 		}
 		
 		if objPlayer.currentArmor !=0 
 		{
+			var damageReduction = objPlayer.currentArmor
 			objPlayer.currentArmor -= damage
+			
+			if objPlayer.currentArmor < 0
+			{
+				objPlayer.currentArmor = 0
+			}
+			damage -= damageReduction
+			if damage < 0 
+			{
+				damage = 0
+			}
+		}
+		
+		if objPlayer. currentArmor <= 0
+		{
+			objPlayer.currentHP -= damage
+			
 		}
 	}
 	
