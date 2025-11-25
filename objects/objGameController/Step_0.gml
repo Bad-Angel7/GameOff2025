@@ -1,6 +1,11 @@
 /// @description Insert description here
 // You can write your code in this editor
 
+//if keyboard_check_pressed(vk_f1)
+//{
+//	waveCounter += 1
+//}
+
 ///Transition to and from rooms. Will be useful for the shop
 ///Stops sounds but lets other things like the UI, timer and probably SFX slip through. Should be fixed
 if keyboard_check_pressed(vk_f12)
@@ -16,7 +21,7 @@ if keyboard_check_pressed(vk_f12)
 	{
 		room_goto(battleRoom)
 		audio_stop_all()
-		audio_play_sound(sfxMainThemeLoop, 0, true, musicVolume)
+		audio_play_sound(sfxMainThemeLoop, 0, true)
 	}
 }
 if keyboard_check_pressed(vk_space)

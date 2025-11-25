@@ -64,6 +64,11 @@ function damageEnemy(damage, enemytodamage)
 						}
 						else
 						{
+							//Idk why this doesn't work
+							if ds_list_find_index(global.inventory, "Incendiary Ring")
+							{
+								target.ignite += 1
+							}
 							target.ignite += global.currentAbility.statusTurn
 						}
 					}	

@@ -1,18 +1,15 @@
 {
   "$GMObject":"",
-  "%Name":"objSpawn3",
+  "%Name":"objShopKeeper",
   "eventList":[],
   "managed":true,
-  "name":"objSpawn3",
+  "name":"objShopKeeper",
   "overriddenProperties":[],
   "parent":{
-    "name":"Spawns",
-    "path":"folders/Objects/Spawns.yy",
+    "name":"Objects",
+    "path":"folders/Objects.yy",
   },
-  "parentObjectId":{
-    "name":"objSpawnParent",
-    "path":"objects/objSpawnParent/objSpawnParent.yy",
-  },
+  "parentObjectId":null,
   "persistent":false,
   "physicsAngularDamping":0.1,
   "physicsDensity":0.5,
@@ -30,7 +27,10 @@
   "resourceType":"GMObject",
   "resourceVersion":"2.0",
   "solid":false,
-  "spriteId":null,
+  "spriteId":{
+    "name":"sprCat",
+    "path":"sprites/sprCat/sprCat.yy",
+  },
   "spriteMaskId":null,
   "visible":true,
 }

@@ -20,6 +20,7 @@ switch (buttonID)
 		audio_stop_all()
 		audio_play_sound(sfxMainThemeLoop, 0, true)
 		room_restart()
+		objGameController.waveCounter = 1
 		break;
 		
 	case 3: // Index
@@ -107,7 +108,6 @@ switch (buttonID)
 		global.ability2 = false
 		global.ability3 = false
 		global.ability4 = false
-		global.ability5 = false
-		
+		global.ability5 = false		
 		break;
 }

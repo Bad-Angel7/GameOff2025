@@ -23,11 +23,11 @@ if position_meeting(mouse_x, mouse_y, objAbilityParent)
 	}
 	else if variable_instance_exists(abilityHover, "heal")
 	{
-		layer_text_text(textIDType, "Heal:")
+		layer_text_text(textIDType, "Heal")
 	}
 	else if variable_instance_exists(abilityHover, "armor")
 	{
-		layer_text_text(textIDType, "Armor:")
+		layer_text_text(textIDType, "Armor")
 	}
 	
 	

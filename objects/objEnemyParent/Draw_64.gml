@@ -26,14 +26,17 @@ if currentArmor > 0
 if drenched > 0 
 {
 	draw_sprite_stretched(sprDrenched, 0, drenchedx, drenchedy, 32, 32)
+	draw_text_ext_transformed(drenchedx, drenchedy + 24,string(drenched), 16, 64, 2, 2, 0)
 }
 
 if ignite > 0 
 {
 	draw_sprite_stretched(sprIgnite, 0, ignitex, ignitey, 32, 32)
+	draw_text_ext_transformed(ignitex, ignitey + 24,string(ignite), 16, 64, 2, 2, 0)
 }
 
 if frost > 0 
 {
 	draw_sprite_stretched(sprFrost, 0, frostx, frosty, 32, 32)
+	draw_text_ext_transformed(frostx, frosty + 24,string(frost), 16, 64, 2, 2, 0)
 }

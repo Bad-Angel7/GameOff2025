@@ -10,7 +10,6 @@ healthbarx = xstart - sprite_width
 //ystart - 100 is 100 pixels above player
 healthbary = ystart - sprite_height
 
-
 if (position_meeting(mouse_x, mouse_y, objMagicMissle))
 {
 	//var ability = instance_nearest(mouse_x, mouse_y, objAbility1)
@@ -98,3 +97,13 @@ else
 	//Reset Debug ID when mouse off current target so it doesn't spam logs
 	debugShown = false
 }
+
+//switch (inventory) 
+//{
+//	case "Incendiary Ring":
+//		name = "Incendiary Ring"
+//	    break;
+//    default:
+//        // code here
+//        break;
+//}

@@ -29,7 +29,21 @@ if instance_exists(objAbility5)
 switch (ability) 
 {
 	case "Empty":
+		//name = "Empty"
 		sprite_index = sprEmpty
+		//damage = noone
+		//armor = noone
+		//energyCost = noone
+		//multitarget = false
+		//audio = noone
+		//canTargetEnemy = false
+		//canTargetPlayer = false
+		
+		//ignite = false
+		//frost = false
+		//drenched = false
+		//statusEffect = noone
+		//statusTurn = noone
 		break;
 	
     case "MagicMissle":

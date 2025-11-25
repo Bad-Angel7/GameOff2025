@@ -23,5 +23,11 @@ window_enable_borderless_fullscreen(false)
 timerBuffer = game_get_speed(gamespeed_fps) * 5
 bonusTimer = game_get_speed(gamespeed_fps) * 10
 
+enemySpawn = function()
+{
+	randomise()
+	enemyArray = ["Skeleton", "Kobold", "Demon"]
 
+	enemyArrayIndex = irandom(array_length(enemyArray) - 1)
+}
 
