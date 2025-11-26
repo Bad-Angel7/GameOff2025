@@ -1,0 +1,42 @@
+{
+  "$GMTileSet":"v1",
+  "%Name":"UITest",
+  "autoTileSets":[],
+  "macroPageTiles":{
+    "SerialiseHeight":11,
+    "SerialiseWidth":12,
+    "TileCompressedData":[
+      -62,0,22,13,0,14,0,15,0,45,0,46,47,0,0,29,0,30,0,31,0,61,0,62,63,-26,0,4,1,2,3,4,-7,0,5,16,17,18,19,
+      20,-6,0,
+    ],
+    "TileDataFormat":1,
+  },
+  "name":"UITest",
+  "out_columns":11,
+  "out_tilehborder":2,
+  "out_tilevborder":2,
+  "parent":{
+    "name":"Game Off 2025",
+    "path":"Game Off 2025.yyp",
+  },
+  "resourceType":"GMTileSet",
+  "resourceVersion":"2.0",
+  "spriteId":{
+    "name":"MediavelFree",
+    "path":"sprites/MediavelFree/MediavelFree.yy",
+  },
+  "spriteNoExport":false,
+  "textureGroupId":{
+    "name":"Default",
+    "path":"texturegroups/Default",
+  },
+  "tileAnimationFrames":[],
+  "tileAnimationSpeed":2.0,
+  "tileHeight":64,
+  "tilehsep":0,
+  "tilevsep":0,
+  "tileWidth":64,
+  "tilexoff":0,
+  "tileyoff":0,
+  "tile_count":128,
+}

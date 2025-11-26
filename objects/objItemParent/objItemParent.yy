@@ -36,8 +36,8 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"sprAbility",
-    "path":"sprites/sprAbility/sprAbility.yy",
+    "name":"sprPoisonRing",
+    "path":"sprites/sprPoisonRing/sprPoisonRing.yy",
   },
   "spriteMaskId":null,
   "visible":true,

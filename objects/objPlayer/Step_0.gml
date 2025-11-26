@@ -2,22 +2,16 @@
 // You can write your code in this editor
 
 //changeable health bar settings
-healthbarwidth = objGameController.displayResolutionX
-healthbarheight = objGameController.displayResolutionY/8
-//health bar pos based on screen
-//healthbarx = (100) - (healthbarwidth/2)
-healthbarx = xstart - sprite_width
-//ystart - 100 is 100 pixels above player
-healthbary = ystart - sprite_height
-
-if (position_meeting(mouse_x, mouse_y, objMagicMissle))
+if instance_exists(objGameController)
 {
-	//var ability = instance_nearest(mouse_x, mouse_y, objAbility1)
+	healthbarwidth = objGameController.displayResolutionX
+	healthbarheight = objGameController.displayResolutionY/8
+	//health bar pos based on screen
+	//healthbarx = (100) - (healthbarwidth/2)
+	healthbarx = xstart - sprite_width
+	//ystart - 100 is 100 pixels above player
+	healthbary = ystart - sprite_height
 }
-//if audioTimer >= 0
-//{
-//	audioTimer -= 1
-//}
 
 //Find enemy nearest mouse position and apply ability damage to them
 //Going to try to find a way to select enemy position instead of enemy type in the future

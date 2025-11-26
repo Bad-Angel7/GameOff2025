@@ -8,7 +8,6 @@ maxEnergy = 4
 currentEnergy = maxEnergy
 
 currentGold = 20
-global.inventory = ds_list_create()
 
 playerAlive = true
 

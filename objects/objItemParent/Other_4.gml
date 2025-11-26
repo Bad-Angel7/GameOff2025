@@ -14,8 +14,6 @@ if room = shopRoom
 	
  
 		itemPoint.itemName = itemSelected
-			
-
 	}		
 
 
@@ -24,6 +22,7 @@ if room = shopRoom
 	{
 	    case "Incendiary Ring":
 	        name = "Incendiary Ring"
+			sprite_index = sprIncendiaryRing
 			description = "Adds + 1 to all IGNITE turns applied"
 			price = 15
 	        break;

@@ -13,14 +13,16 @@ switch (buttonID)
 	case 2: // Restart
 	
 		///Crashes game with current UI for some reason
+		global.currentAbility = noone
+		objPauseController.paused = false
 		layer_set_visible("StatsLayer", true)
 		layer_set_visible("AbilityIconsLayer", true)
 		layer_set_visible("SelectionLayer", false)
 		layer_set_visible("DeathLayer", false)
+		layer_set_visible("PauseLayer", false)
 		audio_stop_all()
 		audio_play_sound(sfxMainThemeLoop, 0, true)
 		room_restart()
-		objGameController.waveCounter = 1
 		break;
 		
 	case 3: // Index
@@ -50,6 +52,7 @@ switch (buttonID)
 		layer_set_visible("PauseLayer", false)
 		layer_set_visible("StatsLayer", false)
 		layer_set_visible("AbilityIconsLayer", false)
+		layer_set_visible("MeasuringLayer", false)
 		break;
 	
 	case 6: // Quit
@@ -81,6 +84,7 @@ switch (buttonID)
 		layer_set_visible("StatsLayer", true)
 		layer_set_visible("AbilityIconsLayer", true)
 		layer_set_visible("SelectionLayer", false)
+		layer_set_visible("MeasuringLayer", true)
 		audio_stop_all()
 		menuAudioUpdate()
 		audio_play_sound(sfxMainThemeLoop, 0, true)

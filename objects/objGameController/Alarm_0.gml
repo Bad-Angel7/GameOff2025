@@ -30,13 +30,15 @@ if instance_exists(objPlayer)
 	{
 		waveCounter++
 		//should be wave 5 lol
-		if waveCounter = (150)
+		if (waveCounter % 5 == 0)
 		{
+			global.currentAbility = noone
 			room_goto(shopRoom)
 			layer_set_visible("StatsLayer", false)
 			layer_set_visible("AbilityIconsLayer", false)
 			layer_set_visible("AbilityLayer", false)
 			audio_stop_all()
+			audio_play_sound(sfxShop2, 0, 1)
 			//Should show shop layer and play its theme
 			exit
 		}

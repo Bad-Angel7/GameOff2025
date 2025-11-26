@@ -49,6 +49,7 @@ pauseUpdate = function()
 		layer_set_visible("StatsLayer", false)
 		layer_set_visible("AbilityLayer", false)
 		layer_set_visible("AbilityIconsLayer", false)
+		layer_set_visible("MeasuringLayer", false)
 	}
 	else
 	{
@@ -56,10 +57,11 @@ pauseUpdate = function()
 		audio_stop_sound(sfxPause2)
 		audio_resume_all()
 		layer_set_visible("PauseLayer", false)
-		if room = battleRoom
+		if room = battleRoom || room = shopRoom
 		{
 			layer_set_visible("StatsLayer", true)
 			layer_set_visible("AbilityIconsLayer", true)
+			layer_set_visible("MeasuringLayer", true)
 		}
 		layer_set_visible("SettingsLayer", false)
 	}

@@ -65,7 +65,7 @@ function damageEnemy(damage, enemytodamage)
 						else
 						{
 							//Idk why this doesn't work
-							if ds_list_find_index(global.inventory, "Incendiary Ring")
+							if ds_list_find_index(global.inventory, "Incendiary Ring") > -1
 							{
 								target.ignite += 1
 							}

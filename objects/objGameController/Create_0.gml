@@ -9,6 +9,10 @@ if !persistent
 	persistent = true	
 }
 
+global.itemList = ds_list_create()
+ds_list_add(global.itemList, "Incendiary Ring", "Test2", "Test3", "Test4", "Test5", "Test6")
+global.inventory = ds_list_create()
+
 waveCounter = 1
 
 //Currently doesn't scale properly and Idk a fix :3

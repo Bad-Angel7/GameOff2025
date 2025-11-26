@@ -14,12 +14,16 @@
 //draw_sprite_stretched(sprHealthBarBorder, 0, healthbarx, healthbary, healthbarwidth, healthbarheight)
 
 //draw_text_ext_transformed(healthbarx, healthbary, string(currentHP) + "/" + string(maxHP), 4, 64, 2, 2, 0)
-draw_text_ext_transformed(healthbarx - (objGameController.displayResolutionX / 4), healthbary, "Energy: " + string(currentEnergy), 16, 64, 2, 2, 0)
-
-if currentArmor > 0 
+if instance_exists(objGameController)
 {
-	draw_text_ext_transformed(healthbarx, healthbary - 64, "Armor: " + string(currentArmor), 16, 64, 2, 2, 0)
+	draw_text_ext_transformed(healthbarx - (objGameController.displayResolutionX / 4), healthbary, "Energy: " + string(currentEnergy), 16, 64, 2, 2, 0)
+
+	if currentArmor > 0 
+	{
+		draw_text_ext_transformed(healthbarx, healthbary - 64, "Armor: " + string(currentArmor), 16, 64, 2, 2, 0)
+	}
 }
+
 
 if global.currentAbility != noone
 {
@@ -272,6 +276,30 @@ else if keyboard_check_pressed(ord("5"))
 		global.currentAbility = objAbility5
 		global.ability = global.currentAbility
 	}
+}
+else if position_meeting(mouse_x, mouse_y, objAbilityParent)
+{
+	abilityTarget = instance_nearest(mouse_x, mouse_y, objAbilityParent)
+	if mouse_check_button_pressed(mb_left)
+	{
+		if abilityUIToggle == false
+		{
+			global.currentAbility = abilityTarget
+			global.ability = global.currentAbility
+		}
+
+		if abilityUIToggle == true && global.currentAbility == abilityTarget
+		{
+			global.currentAbility = noone
+			global.ability = global.currentAbility
+		}
+		else if abilityUIToggle == true && global.currentAbility != abilityTarget
+		{
+			global.currentAbility = abilityTarget
+			global.ability = global.currentAbility
+		}
+	}
+
 }
 //else if (position_meeting(mouse_x, mouse_y, objMagicMissle))
 //{
