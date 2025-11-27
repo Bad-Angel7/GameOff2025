@@ -9,7 +9,7 @@ switch (settingID)
 {
 	case 1: // Fullscreen
 		objPauseController.fullscreenUpdate()
-		objButton.menuAudioUpdate()
+		objButton.menuAudioUpdate()		
 		break;
 	
 	case 2: // Borderless Window

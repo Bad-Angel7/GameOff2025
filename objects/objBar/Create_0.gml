@@ -4,6 +4,13 @@
 maxValue = 100
 amountCurrent = 0
 isHeld = false
+
+//ini_open("Settings.ini")
+
+//global.musicVolume = ini_read_real("Volume", "Music Volume", 10) * 10
+
+//ini_close()
+
 global.musicVolume = 10
 
 switch(setting)

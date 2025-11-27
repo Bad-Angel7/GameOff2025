@@ -46,7 +46,7 @@ switch(nextAttack)
 		damageText = damage
 		if frost > 0
 		{
-			damageText = round(damage * .70)
+			damageText = floor(damage * global.damageReduction)
 		}
 		armor = noone
 		break;
@@ -56,7 +56,7 @@ switch(nextAttack)
 		damageText = damage
 		if frost > 0
 		{
-			damageText = round(damage * .70)
+			damageText = floor(damage * global.damageReduction)
 		}
 		armor = noone
 		break;
@@ -64,6 +64,11 @@ switch(nextAttack)
 	case "parry":
 		damage = noone
 		armor = 6
+		armorText = armor
+		if drenched > 0
+		{
+			armorText = floor(armor * global.armorReduction) 
+		}
 		break;
 		
 	default:

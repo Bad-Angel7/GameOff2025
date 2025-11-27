@@ -7,12 +7,14 @@ currentArmor = 0
 maxEnergy = 4
 currentEnergy = maxEnergy
 
-currentGold = 20
+currentGold = 200
 
 playerAlive = true
 
 abilityUIToggle = false
 global.currentAbility = noone
+global.damageReduction = .75
+global.armorReduction = .75
 textIDType = noone
 
 audioTimer = 0

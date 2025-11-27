@@ -6,13 +6,15 @@ description = "Error"
 price = 0
 isPurchased = false
 
-randomItem = function()
-{	
-	randomise()
-	listSize = ds_list_size(global.itemList) - 1
-	ds_list_shuffle(global.itemList)
-	itemSelected = ds_list_find_value(global.itemList, 0)
-	itemIndex = ds_list_find_index(global.itemList, itemSelected)
-	sprite_index = itemIndex.sprite_index
-	ds_list_delete(global.itemList, itemIndex)
+if instance_exists(objItemParent)
+{
+	randomItem = function()
+	{	
+		randomise()
+		listSize = ds_list_size(global.itemList) - 1
+		ds_list_shuffle(global.itemList)
+		itemSelected = ds_list_find_value(global.itemList, 0)
+		itemIndex = ds_list_find_index(global.itemList, itemSelected)
+		ds_list_delete(global.itemList, itemIndex)
+	}
 }

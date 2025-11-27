@@ -38,8 +38,7 @@ switch (buttonID)
 		menuAudioUpdate()
 		break;
 		
-	case 5: // Main Menu
-		room_goto(mainMenuRoom)
+	case 5: // Main Menu	
 		objPauseController.paused = false
 		if room != mainMenuRoom
 		{
@@ -53,6 +52,7 @@ switch (buttonID)
 		layer_set_visible("StatsLayer", false)
 		layer_set_visible("AbilityIconsLayer", false)
 		layer_set_visible("MeasuringLayer", false)
+		room_goto(mainMenuRoom)
 		break;
 	
 	case 6: // Quit
@@ -91,16 +91,37 @@ switch (buttonID)
 		break;
 	
 	case 9: //Class Select
+		menuAudioUpdate()
 		layer_set_visible("MainMenuLayer", false)
 		layer_set_visible("SelectionLayer", true)
+		with objAbilitySlotParent
+			alarm[0] = 1
 		break;
 		
 	case 10: //Reset Class Select
-		global.ability1Variable = "Empty"
-		global.ability2Variable = "Empty"
-		global.ability3Variable = "Empty"
-		global.ability4Variable = "Empty"
-		global.ability5Variable = "Empty"
+		menuAudioUpdate()
+		
+		ini_open("Settings.ini")
+		
+		ini_key_delete("Abilities", "Ability 1")
+		ini_key_delete("Abilities", "Ability 2")
+		ini_key_delete("Abilities", "Ability 3")
+		ini_key_delete("Abilities", "Ability 4")
+		ini_key_delete("Abilities", "Ability 5")
+		
+		global.ability1 = "Empty"
+		global.ability2 = "Empty"
+		global.ability3 = "Empty"
+		global.ability4 = "Empty"
+		global.ability5 = "Empty"
+		
+		ini_write_string("Abilities", "Ability 1", global.ability1)
+		ini_write_string("Abilities", "Ability 2", global.ability2)
+		ini_write_string("Abilities", "Ability 3", global.ability3)
+		ini_write_string("Abilities", "Ability 4", global.ability4)
+		ini_write_string("Abilities", "Ability 5", global.ability5)
+		
+		ini_close()
 		
 		objAbility1.sprite_index = sprEmpty
 		objAbility2.sprite_index = sprEmpty
@@ -108,10 +129,7 @@ switch (buttonID)
 		objAbility4.sprite_index = sprEmpty
 		objAbility5.sprite_index = sprEmpty
 		
-		global.ability1 = false
-		global.ability2 = false
-		global.ability3 = false
-		global.ability4 = false
-		global.ability5 = false		
+		with objAbilitySlotParent
+			alarm[0] = 1
 		break;
 }

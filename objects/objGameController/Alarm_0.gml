@@ -81,6 +81,7 @@ if instance_exists(objPlayer)
 	}
 }
 
+
 //var spawns = instance_number(objSpawn)
 //var spawnInstance = array_create(spawns)
 

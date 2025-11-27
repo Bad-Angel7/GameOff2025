@@ -17,10 +17,24 @@ fullscreenUpdate = function()
 	if window_get_fullscreen() = true
 	{
 		window_set_fullscreen(false)
+		
+		ini_open("Settings.ini")
+		
+		ini_key_delete("Display", "Fullscreen")
+		ini_write_real("Display", "Fullscreen", 0)
+		
+		ini_close()
 	}
 	else 
 	{
 		window_set_fullscreen(true)
+		
+		ini_open("Settings.ini")
+		
+		ini_key_delete("Display", "Fullscreen")
+		ini_write_real("Display", "Fullscreen", 1)
+		
+		ini_close()
 	}
 }
 

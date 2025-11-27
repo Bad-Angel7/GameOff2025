@@ -14,7 +14,7 @@ if damage != noone
 
 if armor != noone
 {
-	draw_text_ext_transformed(statusx, statusy + 32,"Armor: " + string(armor), 16, 64, 2, 2, 0)
+	draw_text_ext_transformed(statusx, statusy + 32,"Armor: " + string(armorText), 16, 64, 2, 2, 0)
 }
 
 if currentArmor > 0
@@ -31,7 +31,7 @@ if drenched > 0
 
 if ignite > 0 
 {
-	draw_sprite_stretched(sprIgnite, 0, ignitex, ignitey, 32, 32)
+	draw_sprite_stretched(sprIgnite2, 0, ignitex, ignitey, 32, 32)
 	draw_text_ext_transformed(ignitex, ignitey + 24,string(ignite), 16, 64, 2, 2, 0)
 }
 

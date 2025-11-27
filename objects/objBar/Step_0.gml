@@ -27,6 +27,7 @@ switch(setting)
 		audio_sound_gain(sfxMainMenu, amountCurrent / 100, 0)
 		audio_sound_gain(sfxPause2, amountCurrent / 100, 0)
 		audio_sound_gain(sfxMainThemeLoop, amountCurrent / 100, 0)
+		audio_sound_gain(sfxShop2, amountCurrent / 100, 0)
 		break;
 		
 	case "sound":

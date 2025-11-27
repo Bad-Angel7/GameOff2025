@@ -1,58 +1,115 @@
 /// @description Insert description here
 // You can write your code in this editor
 
-visible = false
-item1 = false 
-item2 = false
-item3 = false 
-item4 = false
-item5 = false 
-item6 = false
-item7 = false 
-item8 = false
+
+global.item1 = false 
+global.item2 = false
+global.item3 = false 
+global.item4 = false
+global.item5 = false 
+global.item6 = false
+global.item7 = false 
+global.item8 = false
+global.item9 = false
+global.item10 = false
+
 
 inventoryUpdate = function()
 {
-	//var items = instance_number(objInventoryItem)
-	//var itemInstance = array_create(items)
-	
-	//for (var i = 0; i < items; ++i)
-	//{
-	//	itemInstance[i] = instance_find(objInventoryItem, i)
-	//	itemPoint = itemInstance[i]
-	//}	
-	
-	//Dunno what to do with this. Always returns the last item for some reason and doesn't change the
-	//sprite. Just sets it to visible??
-	if ds_list_size(global.inventory) - 1 > -1
-	{
-		var uiLayer = layer_get_flexpanel_node("MeasuringLayer")
-		if item1 = false
+		if global.item1 = false
 		{
-			var itemPanelName = flexpanel_node_get_child(uiLayer, "Item9")
-			var itemStructName = flexpanel_node_get_struct(itemPanelName)
-			var itemIDName = itemStructName.layerElements[0].elementId
-			var layerid = layer_get_id("MeasuringLayer")
-			var itemSprite = layer_sprite_get_id(layerid, "inst_98AFA03")
-			layer_sprite_change(itemSprite, sprIncendiaryRing)
-			item1 = true
-			visible = true
+			objItemSlot1.sprite_index = global.itemHover.sprite_index
+			global.item1 = global.itemHover.itemName
+			objItemSlot1.inventoryItem = global.itemHover.itemSelected
+			//objItemSlot1.sprite_index = objItemSlot1.inventoryItem
 			exit
 		}
 
-		if item2 = false
+		if global.item2 = false
 		{
-			var itemPanel2Name = flexpanel_node_get_child(uiLayer, "Item2")
-			var itemStruct2Name = flexpanel_node_get_struct(itemPanel2Name)
-			var itemID2Name = itemStruct2Name.layerElements[0].elementId
-			layer_sprite_change(itemID2Name, sprPoisonRing)
-			item2 = true
+			objItemSlot2.sprite_index = global.itemHover.sprite_index
+			global.item2 = global.itemHover.itemName
+			objItemSlot2.inventoryItem = global.itemHover.itemSelected
 			exit
 		}
-		visible = true
-	}
-	else
-	{
-		visible = false
-	}
+		
+		if global.item3 = false
+		{
+			objItemSlot3.sprite_index = global.itemHover.sprite_index
+			global.item3 = global.itemHover.itemName
+			objItemSlot3.inventoryItem = global.itemHover.itemSelected
+			exit
+		}
+		
+		if global.item4 = false
+		{
+			objItemSlot4.sprite_index = global.itemHover.sprite_index
+			global.item4 = global.itemHover.itemName
+			objItemSlot4.inventoryItem = global.itemHover.itemSelected
+			exit
+		}
+		
+		if global.item5 = false
+		{
+			objItemSlot5.sprite_index = global.itemHover.sprite_index
+			global.item5 = global.itemHover.itemName
+			objItemSlot5.inventoryItem = global.itemHover.itemSelected
+			exit
+		}
+		
+		if global.item6 = false
+		{
+			objItemSlot6.sprite_index = global.itemHover.sprite_index
+			global.item6 = global.itemHover.itemName
+			objItemSlot6.inventoryItem = global.itemHover.itemSelected
+			exit
+		}
+		
+		if global.item7 = false
+		{
+			objItemSlot7.sprite_index = global.itemHover.sprite_index
+			global.item7 = global.itemHover.itemName
+			objItemSlot7.inventoryItem = global.itemHover.itemSelected
+			exit
+		}
+		
+		if global.item8 = false
+		{
+			objItemSlot8.sprite_index = global.itemHover.sprite_index
+			global.item8 = global.itemHover.itemName
+			objItemSlot8.inventoryItem = global.itemHover.itemSelected
+			exit
+		}
+		
+		if global.item9 = false
+		{
+			objItemSlot9.sprite_index = global.itemHover.sprite_index
+			global.item9 = global.itemHover.itemName
+			objItemSlot9.inventoryItem = global.itemHover.itemSelected
+			exit
+		}
+		
+		if global.item10 = false
+		{
+			objItemSlot10.sprite_index = global.itemHover.sprite_index
+			global.item10 = global.itemHover.itemName
+			objItemSlot10.inventoryItem = global.itemHover.itemSelected
+			exit
+		}
+
 }
+
+///UI Updates
+//Name
+var uiLayer = layer_get_flexpanel_node("MeasuringLayer")
+var textPanelName = flexpanel_node_get_child(uiLayer, "ItemName")
+var textStructName = flexpanel_node_get_struct(textPanelName)
+textIDName = textStructName.layerElements[0].elementId
+
+//Description
+var descriptionPanelName = flexpanel_node_get_child(uiLayer, "ItemDescription")
+var descriptionStructName = flexpanel_node_get_struct(descriptionPanelName)
+descriptionIDName = descriptionStructName.layerElements[0].elementId
+
+layer_text_alpha(textIDName, 0)
+layer_text_alpha(descriptionIDName, 0)

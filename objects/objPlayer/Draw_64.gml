@@ -16,7 +16,7 @@
 //draw_text_ext_transformed(healthbarx, healthbary, string(currentHP) + "/" + string(maxHP), 4, 64, 2, 2, 0)
 if instance_exists(objGameController)
 {
-	draw_text_ext_transformed(healthbarx - (objGameController.displayResolutionX / 4), healthbary, "Energy: " + string(currentEnergy), 16, 64, 2, 2, 0)
+	draw_text_ext_transformed(healthbarx - (objGameController.displayResolutionX / 8), healthbary, "Energy: " + string(currentEnergy), 16, 64, 2, 2, 0)
 
 	if currentArmor > 0 
 	{

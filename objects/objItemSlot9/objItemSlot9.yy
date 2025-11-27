@@ -1,17 +1,18 @@
 {
   "$GMObject":"",
-  "%Name":"objInventory",
-  "eventList":[
-    {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":0,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
-  ],
+  "%Name":"objItemSlot9",
+  "eventList":[],
   "managed":true,
-  "name":"objInventory",
+  "name":"objItemSlot9",
   "overriddenProperties":[],
   "parent":{
-    "name":"Objects",
-    "path":"folders/Objects.yy",
+    "name":"Items",
+    "path":"folders/Objects/Items.yy",
   },
-  "parentObjectId":null,
+  "parentObjectId":{
+    "name":"objInventoryItem",
+    "path":"objects/objInventoryItem/objInventoryItem.yy",
+  },
   "persistent":false,
   "physicsAngularDamping":0.1,
   "physicsDensity":0.5,

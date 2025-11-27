@@ -6,7 +6,7 @@ function enemyActions(action)
 	{	
 		if frost > 0
 		{
-			damage = round(damage * .70) 
+			damage = floor(damage * .75) 
 		}
 		
 		if objPlayer.currentArmor !=0 
@@ -34,6 +34,10 @@ function enemyActions(action)
 	
 	if armor != noone
 	{
+		if drenched > 0
+		{
+			armor = floor(armor * global.armorReduction) 
+		}
 		target = instance_nearest(x, y, objEnemyParent)
 		target.currentArmor += armor
 	}

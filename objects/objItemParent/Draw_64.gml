@@ -3,25 +3,20 @@
 
 if position_meeting(mouse_x, mouse_y, objItemParent)
 {
-	var item = instance_nearest(mouse_x, mouse_y, objItemParent)
-	if mouse_check_button_pressed(mb_left) && objPlayer.currentGold >= item.price && item.isPurchased = false
+	item = instance_nearest(mouse_x, mouse_y, objItemParent)
+	if mouse_check_button_pressed(mb_left) && objPlayer.currentGold >= item.price
 	{
+		show_message_async(item.itemSelected)
 		audio_play_sound(sfxMagicMissle, 0, 0)
 		objPlayer.currentGold -= item.price
-		item.isPurchased = true
-		layer_set_visible("ShopLayer", false)
-		ds_list_add(global.inventory, item.name)
-		var test = ds_list_size(global.inventory) - 1
-		show_message_async(ds_list_find_value(global.inventory, test))
-		show_message_async(ds_list_find_index(global.inventory, "Incendiary Ring"))
-		show_message_async(ds_list_find_index(global.inventory, "Test4"))
+		layer_set_visible("ShopLayer", false)	
 		objInventoryItem.inventoryUpdate()
+		ds_list_add(global.inventory, item.name)
 		instance_destroy(item)
 	}
 	
-	//if item.isPurchased = true 
-	//{
-	//	var test = ds_list_find_index(global.inventory, 0)
-	//	show_message_async(ds_list_find_index(global.inventory, ))
-	//}
+	if mouse_check_button_pressed(mb_right)
+	{
+		show_message_async(item.itemSelected)
+	}
 }

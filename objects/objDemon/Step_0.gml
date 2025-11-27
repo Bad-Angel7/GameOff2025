@@ -41,7 +41,7 @@ switch(nextAttack)
 		damageText = damage
 		if frost > 0
 		{
-			damageText = round(damage * .70)
+			damageText = floor(damage * global.damageReduction)
 		}
 		armor = noone
 		break;
@@ -51,7 +51,7 @@ switch(nextAttack)
 		damageText = damage
 		if frost > 0
 		{
-			damageText = round(damage * .70)
+			damageText = floor(damage * global.damageReduction)
 		}
 		armor = noone
 		break;

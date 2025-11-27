@@ -24,7 +24,7 @@ if keyboard_check_pressed(vk_f12)
 		audio_play_sound(sfxMainThemeLoop, 0, true)
 	}
 }
-if keyboard_check_pressed(vk_space)
+if keyboard_check_pressed(vk_space) && room = battleRoom
 {
 	objPlayer.currentEnergy = 0
 	if instance_exists(objEnemyParent)

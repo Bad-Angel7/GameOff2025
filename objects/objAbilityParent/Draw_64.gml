@@ -130,7 +130,7 @@ if layer_get_visible("SelectionLayer") = true
 	}
 }
 
-if global.ability1 != false && layer_get_visible("SelectionLayer")
+if global.ability1 != "Empty" && layer_get_visible("SelectionLayer")
 {
 	//objAbility1.sprite_index = abilityHover.sprite_index
 }

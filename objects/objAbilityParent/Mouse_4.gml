@@ -5,11 +5,17 @@
 if position_meeting(mouse_x, mouse_y, objAbilityParent) && layer_get_visible("SelectionLayer") == true
 {
 	abilityHover = instance_nearest(mouse_x, mouse_y, objAbilityParent)
-	if global.ability1 = false
+	if global.ability1 = "Empty"
 	{
-		global.ability1Variable = abilityHover.abilityChoice
 		objAbility1.sprite_index = abilityHover.sprite_index
-		global.ability1 = global.ability1Variable
+		global.ability1 = abilityHover.abilityChoice
+		
+		ini_open("Settings.ini")
+		
+		ini_key_delete("Abilities", "Ability 1")
+		ini_write_string("Abilities", "Ability 1", string(global.ability1))
+		
+		ini_close()
 		exit
 	}
 	
@@ -22,33 +28,57 @@ if position_meeting(mouse_x, mouse_y, objAbilityParent) && layer_get_visible("Se
 	//	exit
 	//}
 	
-	if global.ability2 = false
+	if global.ability2 = "Empty"
 	{
-		global.ability2Variable = abilityHover.abilityChoice
 		objAbility2.sprite_index = abilityHover.sprite_index
-		global.ability2 = global.ability2Variable
+		global.ability2 = abilityHover.abilityChoice
+		
+		ini_open("Settings.ini")
+		
+		ini_key_delete("Abilities", "Ability 2")
+		ini_write_string("Abilities", "Ability 2", string(global.ability2))
+		
+		ini_close()
 		exit
 	}
 	
-	if global.ability3 = false
+	if global.ability3 = "Empty"
 	{
-		global.ability3Variable = abilityHover.abilityChoice
 		objAbility3.sprite_index = abilityHover.sprite_index
-		global.ability3 = global.ability3Variable
+		global.ability3 = abilityHover.abilityChoice
+		
+		ini_open("Settings.ini")
+		
+		ini_key_delete("Abilities", "Ability 3")
+		ini_write_string("Abilities", "Ability 3", string(global.ability3))
+		
+		ini_close()
 		exit
 	}
-	if global.ability4 = false
+	if global.ability4 = "Empty"
 	{
-		global.ability4Variable = abilityHover.abilityChoice
 		objAbility4.sprite_index = abilityHover.sprite_index
-		global.ability4 = global.ability4Variable
+		global.ability4 = abilityHover.abilityChoice
+		
+		ini_open("Settings.ini")
+		
+		ini_key_delete("Abilities", "Ability 4")
+		ini_write_string("Abilities", "Ability 4", string(global.ability4))
+		
+		ini_close()
 		exit
 	}
-	if global.ability5 = false
+	if global.ability5 = "Empty"
 	{
-		global.ability5Variable = abilityHover.abilityChoice
 		objAbility5.sprite_index = abilityHover.sprite_index
-		global.ability5 = global.ability5Variable
+		global.ability5 = abilityHover.abilityChoice
+		
+		ini_open("Settings.ini")
+		
+		ini_key_delete("Abilities", "Ability 5")
+		ini_write_string("Abilities", "Ability 5", string(global.ability5))
+		
+		ini_close()
 		exit
 	}
 }

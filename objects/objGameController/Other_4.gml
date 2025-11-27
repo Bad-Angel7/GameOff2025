@@ -37,3 +37,16 @@ if room = battleRoom
 		}
 	}
 }
+
+if room = battleRoom || room = shopRoom
+{
+	layer_set_visible("StatsLayer", true)
+	layer_set_visible("AbilityIconsLayer", true)
+	layer_set_visible("MeasuringLayer", true)
+}
+else
+{
+	layer_set_visible("StatsLayer", false)
+	layer_set_visible("AbilityIconsLayer", false)
+	layer_set_visible("MeasuringLayer", false)
+}
