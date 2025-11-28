@@ -43,6 +43,10 @@ switch(nextAttack)
 	//Will eventually give damage or armor reduction
 	case "swipe":
 		damage = 4
+		if ds_list_find_index(global.inventory, "Fancy Hat") > -1
+		{
+			damage = floor(damage * 1.25)
+		}
 		damageText = damage
 		if frost > 0
 		{
@@ -53,6 +57,10 @@ switch(nextAttack)
 		
 	case "pounce": 
 		damage = 14
+		if ds_list_find_index(global.inventory, "Fancy Hat") > -1
+		{
+			damage = floor(damage * 1.25)
+		}
 		damageText = damage
 		if frost > 0
 		{
@@ -77,6 +85,8 @@ switch(nextAttack)
 
 if currentHP <= 0
 {	
+	objPlayer.currentGold += gold
+	
 	instance_destroy()
 }
 

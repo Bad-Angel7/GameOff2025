@@ -60,6 +60,7 @@
     {"name":"inst_784B136D","path":"rooms/mainMenuRoom/mainMenuRoom.yy",},
     {"name":"inst_146B2815","path":"rooms/mainMenuRoom/mainMenuRoom.yy",},
     {"name":"inst_2A89578C","path":"rooms/mainMenuRoom/mainMenuRoom.yy",},
+    {"name":"inst_741BC6BE","path":"roomui/RoomUI/RoomUI.yy",},
   ],
   "isDnd":false,
   "layers":[

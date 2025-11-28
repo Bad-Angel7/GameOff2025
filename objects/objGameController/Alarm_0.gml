@@ -29,6 +29,11 @@ if instance_exists(objPlayer)
 	else
 	{
 		waveCounter++
+		
+		if objPlayer.cloakUsed = true && ds_list_find_index(global.inventory, "Cloak of Displacement") > -1
+		{
+			objPlayer.cloakUsed = false
+		}
 		//should be wave 5 lol
 		if (waveCounter % 5 == 0)
 		{

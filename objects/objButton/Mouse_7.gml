@@ -26,7 +26,9 @@ switch (buttonID)
 		break;
 		
 	case 3: // Index
-		
+		layer_set_visible("MainMenuLayer", false)
+		layer_set_visible("PauseLayer", false)
+		layer_set_visible("IndexLayer", true)
 		break;
 		
 	case 4: // Settings
@@ -74,6 +76,7 @@ switch (buttonID)
 			layer_set_visible("StatsLayer", false)
 			layer_set_visible("AbilityIconsLayer", true)
 		}
+		layer_set_visible("IndexLayer", false)
 		layer_set_visible("SettingsLayer", false)
 		window_set_cursor(objPauseController.cursor)
 		break;

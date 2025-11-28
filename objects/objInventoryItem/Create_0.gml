@@ -1,6 +1,7 @@
 /// @description Insert description here
 // You can write your code in this editor
 
+dexAdded = false
 
 global.item1 = false 
 global.item2 = false
@@ -13,6 +14,16 @@ global.item8 = false
 global.item9 = false
 global.item10 = false
 
+objItemSlot1.inventoryItem = "Empty"
+objItemSlot2.inventoryItem = "Empty"
+objItemSlot3.inventoryItem = "Empty"
+objItemSlot4.inventoryItem = "Empty"
+objItemSlot5.inventoryItem = "Empty"
+objItemSlot6.inventoryItem = "Empty"
+objItemSlot7.inventoryItem = "Empty"
+objItemSlot8.inventoryItem = "Empty"
+objItemSlot9.inventoryItem = "Empty"
+objItemSlot10.inventoryItem = "Empty"
 
 inventoryUpdate = function()
 {

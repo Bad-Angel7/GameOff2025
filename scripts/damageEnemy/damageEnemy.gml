@@ -3,6 +3,17 @@
 
 function damageEnemy(damage, enemytodamage)
 {
+	if ds_list_find_index(global.inventory, "Crit Ring") > -1
+	{
+		var randomNumber = irandom_range(0, 100)
+		if randomNumber>= 90
+		{
+			damage = (damage * 2)
+			show_message_async(damage)
+		}
+	}
+
+	
 	if variable_instance_exists(global.currentAbility, "statusEffect")
 	{
 		statusEffect = variable_instance_exists(global.currentAbility, "statusEffect")
@@ -61,10 +72,13 @@ function damageEnemy(damage, enemytodamage)
 							target.currentHP -= 10
 							target.ignite = 0
 							target.frost = 0
+							if ds_list_find_index(global.inventory, "Ice Crystal") > -1
+							{
+								target.currentHP -= 10
+							}
 						}
 						else
 						{
-							//Idk why this doesn't work
 							if ds_list_find_index(global.inventory, "Incendiary Ring") > -1
 							{
 								target.ignite += 1
@@ -109,6 +123,10 @@ function damageEnemy(damage, enemytodamage)
 				target.currentHP -= 10
 				target.ignite = 0
 				target.frost = 0
+				if ds_list_find_index(global.inventory, "Ice Crystal") > -1
+				{
+					target.currentHP -= 10
+				}
 			}
 			else if variable_instance_exists(global.currentAbility, "statusTurn")
 			{

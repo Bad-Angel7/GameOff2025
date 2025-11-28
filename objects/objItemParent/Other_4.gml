@@ -34,37 +34,52 @@ if instance_exists(objItemParent)
 			case "Wet Blade":
 		        name = "Wet Blade"
 				sprite_index = sprWetBlade
-				description = "Drenched status now reduces enemies block by 50 percent"
+				description = "DRENCHED status now reduces enemies block by 50 percent"
 				price = 25
 		        break;
 		
-			case "Test3":
-		        name = "Test3"
-				sprite_index = sprIncendiaryRing
-				description = "This is a test 3! description wahoo yippie yadda yadda"
+			case "Boots of Swiftness":
+		        name = "Boots of Swiftness"
+				sprite_index = sprBootsOfSwiftness
+				description = "Increases DEX by 2"
 				price = 35
 		        break;
 		
-			case "Test4":
-		        name = "Test4"
-				sprite_index = sprIncendiaryRing
-				description = "This is a test 4! description wahoo yippie yadda yadda"
-				price = 5
+			case "Cloak of Displacement":
+		        name = "Cloak of Displacement"
+				sprite_index = sprCloakOfDisplacement
+				description = "The first damage you take every wave is ignored"
+				price = 50
 		        break;
 		
-			case "Test5":
-		        name = "Test5"
-				sprite_index = sprIncendiaryRing
-				description = "This is a test 5! description wahoo yippie yadda yadda"
+			case "Crit Ring":
+		        name = "Crit Ring"
+				sprite_index = sprCritRing
+				description = "Gives all abilities a 10 percent chance to do double damage"
 				price = 11
 		        break;
 		
-			case "Test6":
-		        name = "Test6"
-				sprite_index = sprIncendiaryRing
-				description = "This is a test 6! description wahoo yippie yadda yadda"
+			case "Ice Crystal":
+		        name = "Ice Crystal"
+				sprite_index = sprIceCrystal
+				description = "Doubles system shock damage"
 				price = 42
 		        break;
+				
+			case "Armor of the Battlemage":
+			    name = "Armor of the Battlemage"
+				sprite_index = sprArmorOfTheBattlemage
+				description = "Taking health damage gives you mana"
+				price = 60
+			    break;
+			
+			case "Fancy Hat":
+				name = "Fancy Hat"
+				sprite_index = sprFancyHat
+				description = "Generates 2 mana every turn but increases damage taken by 25 percent"
+				price = 70
+				break;
+			
 		    default:
 		        // code here
 		        break;

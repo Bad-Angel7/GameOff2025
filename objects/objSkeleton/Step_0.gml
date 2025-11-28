@@ -35,6 +35,10 @@ switch(nextAttack)
 {
 	case "stab":
 		damage = 5
+		if ds_list_find_index(global.inventory, "Fancy Hat") > -1
+		{
+			damage = floor(damage * 1.25)
+		}
 		damageText = damage
 		if frost > 0
 		{
@@ -45,6 +49,10 @@ switch(nextAttack)
 		
 	case "cleave": 
 		damage = 10
+		if ds_list_find_index(global.inventory, "Fancy Hat") > -1
+		{
+			damage = floor(damage * 1.25)
+		}
 		damageText = damage
 		if frost > 0
 		{
@@ -69,5 +77,7 @@ switch(nextAttack)
 
 if currentHP <= 0
 {	
+	objPlayer.currentGold += gold
+	
 	instance_destroy()
 }

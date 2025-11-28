@@ -25,8 +25,8 @@
   "nineSlice":null,
   "origin":4,
   "parent":{
-    "name":"Items",
-    "path":"folders/Sprites/Objects/Items.yy",
+    "name":"Mage Items",
+    "path":"folders/Sprites/Objects/Items/Mage Items.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",

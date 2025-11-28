@@ -76,6 +76,7 @@ pauseUpdate = function()
 			layer_set_visible("StatsLayer", true)
 			layer_set_visible("AbilityIconsLayer", true)
 			layer_set_visible("MeasuringLayer", true)
+			layer_set_visible("IndexLayer", false)
 		}
 		layer_set_visible("SettingsLayer", false)
 	}

@@ -31,8 +31,8 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"sprAbility",
-    "path":"sprites/sprAbility/sprAbility.yy",
+    "name":"sprShopHeart",
+    "path":"sprites/sprShopHeart/sprShopHeart.yy",
   },
   "spriteMaskId":null,
   "visible":true,

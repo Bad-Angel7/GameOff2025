@@ -15,6 +15,12 @@ if instance_exists(objItemParent)
 		ds_list_shuffle(global.itemList)
 		itemSelected = ds_list_find_value(global.itemList, 0)
 		itemIndex = ds_list_find_index(global.itemList, itemSelected)
+		
+		ds_list_add(global.tempList, itemSelected)
 		ds_list_delete(global.itemList, itemIndex)
 	}
+	
+
 }
+
+

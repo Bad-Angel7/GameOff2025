@@ -4,6 +4,11 @@ function enemyActions(action)
 {
 	if damage != noone
 	{	
+		if ds_list_find_index(global.inventory, "Fancy Hat") > -1
+		{
+			damage = floor(damage * 1.25)
+		}
+		
 		if frost > 0
 		{
 			damage = floor(damage * .75) 
@@ -27,8 +32,17 @@ function enemyActions(action)
 		
 		if objPlayer. currentArmor <= 0
 		{
+			if objPlayer.cloakUsed = false && ds_list_find_index(global.inventory, "Cloak of Displacement") > -1 && damage != 0
+			{
+				objPlayer.cloakUsed = true
+				damage = 0
+			}
 			objPlayer.currentHP -= damage
 			
+			if damage > 0 && ds_list_find_index(global.inventory, "Armor of the Battlemage") > -1
+			{
+				objPlayer.currentMana += 1
+			}
 		}
 	}
 	

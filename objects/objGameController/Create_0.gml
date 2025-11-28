@@ -5,8 +5,12 @@ audio_group_load(agSFX)
 audio_group_load(agMenuClick)
 
 global.itemList = ds_list_create()
-ds_list_add(global.itemList, "Incendiary Ring", "Wet Blade", "Test3", "Test4", "Test5", "Test6")
+ds_list_add(global.itemList, "Incendiary Ring", "Wet Blade", "Boots of Swiftness", "Cloak of Displacement", "Crit Ring",
+"Ice Crystal", "Armor of the Battlemage", "Fancy Hat")
 global.inventory = ds_list_create()
+
+global.tempList = ds_list_create()
+
 
 waveCounter = 1
 

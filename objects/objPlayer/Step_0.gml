@@ -42,6 +42,17 @@ if (position_meeting(mouse_x, mouse_y, objEnemyParent))
 				audio_play_sound(global.currentAbility.audio, 0, 0)
 				currentEnergy -= global.currentAbility.energyCost
 			}
+			else if (currentMana - global.currentAbility.energyCost) > -1 && variable_instance_exists(global.currentAbility, "canTargetEnemy")
+			{
+				damageEnemy(global.currentAbility.damage, enemytodamage)
+				
+				if audio_is_playing(global.currentAbility.audio)
+				{
+					audio_stop_sound(global.currentAbility.audio)	
+				}
+				audio_play_sound(global.currentAbility.audio, 0, 0)
+				currentMana -= global.currentAbility.energyCost
+			}
 			
 		}
 		

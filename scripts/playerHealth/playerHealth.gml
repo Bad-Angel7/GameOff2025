@@ -9,7 +9,7 @@ function playerHealth(target, heal, armor)
 	
 	if variable_instance_exists(global.currentAbility, "armor")
 	{
-		target.currentArmor += armor
+		target.currentArmor += armor + global.dex
 	}
 	
 	if target.currentHP > target.maxHP

@@ -9,6 +9,8 @@ drenched = 0
 ignite = 0
 frost = 0
 
+gold = 3 + floor(objGameController.waveCounter/2)
+
 timer = 0
 
 randomise()

@@ -5,7 +5,6 @@ ini_open("Settings.ini")
 
 if instance_exists(objAbility1)
 {
-	//show_message_async(objAbility1.ability)
 	objAbility1.ability = ini_read_string("Abilities", "Ability 1", global.ability1)
 }
 
@@ -105,7 +104,15 @@ switch (ability)
 	case "Shield":
 		name = "Shield"
 		sprite_index = sprShield
-		armor = 10
+		if instance_exists(objPlayer)
+		{
+			armor = 10 + global.dex
+		}
+		else
+		{
+			armor = 10
+		}
+		
 		energyCost = 1
 		audio = sfxShield
 		canTargetPlayer = true
