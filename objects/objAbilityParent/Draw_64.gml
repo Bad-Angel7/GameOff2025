@@ -16,18 +16,20 @@ if position_meeting(mouse_x, mouse_y, objAbilityParent)
 	var textPanelType = flexpanel_node_get_child(uiLayer, "AbilityType")
 	var textStructType = flexpanel_node_get_struct(textPanelType)
 	var textIDType = textStructType.layerElements[0].elementId
-	
-	if variable_instance_exists(abilityHover, "damage")
+
+	///Not sure why this needs to be backwards?
+	if variable_instance_exists(abilityHover, "armor")
+	{
+		layer_text_text(textIDType, "Armor")
+	}
+
+	else if variable_instance_exists(abilityHover, "damage")
 	{
 		layer_text_text(textIDType, "Damage")
 	}
 	else if variable_instance_exists(abilityHover, "heal")
 	{
 		layer_text_text(textIDType, "Heal")
-	}
-	else if variable_instance_exists(abilityHover, "armor")
-	{
-		layer_text_text(textIDType, "Armor")
 	}
 	
 	
@@ -36,7 +38,12 @@ if position_meeting(mouse_x, mouse_y, objAbilityParent)
 	var textStructDamage = flexpanel_node_get_struct(textPanelDamage)
 	var textIDDamage = textStructDamage.layerElements[0].elementId
 	
-	if variable_instance_exists(abilityHover, "damage")
+	if variable_instance_exists(abilityHover, "armor")
+	{
+		layer_text_text(textIDDamage, abilityHover.armor)
+	}
+	
+	else if variable_instance_exists(abilityHover, "damage")
 	{
 		layer_text_text(textIDDamage, abilityHover.damage)
 	}
@@ -44,10 +51,7 @@ if position_meeting(mouse_x, mouse_y, objAbilityParent)
 	{
 		layer_text_text(textIDDamage, abilityHover.heal)
 	}
-	else if variable_instance_exists(abilityHover, "armor")
-	{
-		layer_text_text(textIDDamage, abilityHover.armor)
-	}
+
 	
 	
 	//Energy Cost
@@ -90,6 +94,38 @@ if position_meeting(mouse_x, mouse_y, objAbilityParent)
 	else
 	{
 		layer_text_text(textIDStatusTurn, "")
+	}
+	
+	//Status2
+	var textPanelStatus2Type = flexpanel_node_get_child(uiLayer, "AbilityStatus2")
+	var textStructStatus2Type = flexpanel_node_get_struct(textPanelStatus2Type)
+	var textIDStatus2Type = textStructStatus2Type.layerElements[0].elementId
+	
+	if variable_instance_exists(abilityHover, "weak")
+	{
+		layer_text_text(textIDStatus2Type, "Weak")
+	}
+	else if variable_instance_exists(abilityHover, "shatter")
+	{
+		layer_text_text(textIDStatus2Type, "Shatter")
+	}
+	else //Should probably find a better way to toggle this??
+	{
+		layer_text_text(textIDStatus2Type, "")
+	}
+	
+	//Status turns2
+	var textPanelStatus2Turn = flexpanel_node_get_child(uiLayer, "StatusTurn2")
+	var textStructStatus2Turn = flexpanel_node_get_struct(textPanelStatus2Turn)
+	var textIDStatus2Turn = textStructStatus2Turn.layerElements[0].elementId
+	
+	if variable_instance_exists(abilityHover, "statusTurn2")
+	{
+		layer_text_text(textIDStatus2Turn, abilityHover.statusTurn2)
+	}
+	else
+	{
+		layer_text_text(textIDStatus2Turn, "")
 	}
 	
 	//AOE Type

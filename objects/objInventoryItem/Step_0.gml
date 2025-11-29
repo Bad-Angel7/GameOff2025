@@ -16,7 +16,7 @@ switch (inventoryItem)
 		name = "Wet Blade"
 		sprite_index = sprWetBlade
 		image_alpha = 1
-		description = "Drenched status now reduces enemies block by 50 percent"
+		description = "SHATTER status now reduces enemies block by 50 percent"
 		global.armorReduction = .50
 		break;
 			
@@ -58,8 +58,8 @@ switch (inventoryItem)
 		price = 42
 	    break;
 		
-	case "Armor of the Battlemage":
-	    name = "Armor of the Battlemage"
+	case "Battlemage Armor":
+	    name = "Battlemage Armor"
 		sprite_index = sprArmorOfTheBattlemage
 		image_alpha = 1
 		description = "Taking health damage gives you mana"

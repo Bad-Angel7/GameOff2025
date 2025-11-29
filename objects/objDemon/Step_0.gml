@@ -17,22 +17,10 @@ ignitex = x - (sprite_width/8)
 ignitey = y + (sprite_height/2)
 frostx = x - (sprite_width/16)
 frosty = y + (sprite_height/2)
-//drenchedx = x - (sprite_width/2)
-//drenchedy = y + (sprite_height/2)
-
-
-if timer >= 0 
-{
-	timer -=1
-}
-if timer <= 0
-{
-	timer = 240
-	show_debug_message("Drenched " + string(drenched))
-	show_debug_message("Ignite " + string(ignite))
-	show_debug_message("Frost " + string(frost))
-	show_debug_message("Enemy current HP is " + string(currentHP))
-}
+weakx = x - (sprite_width/1.25)
+weaky = y + (sprite_height/18)
+shatterx = x - (sprite_width/1.25)
+shattery = y - (sprite_height/2.5)
 
 switch(nextAttack)
 {
@@ -43,7 +31,7 @@ switch(nextAttack)
 			damage = floor(damage * 1.25)
 		}
 		damageText = damage
-		if frost > 0
+		if weak > 0
 		{
 			damageText = floor(damage * global.damageReduction)
 		}
@@ -57,7 +45,7 @@ switch(nextAttack)
 			damage = floor(damage * 1.25)
 		}
 		damageText = damage
-		if frost > 0
+		if weak > 0
 		{
 			damageText = floor(damage * global.damageReduction)
 		}

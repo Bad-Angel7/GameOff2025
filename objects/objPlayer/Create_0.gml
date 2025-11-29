@@ -15,6 +15,7 @@ cloakUsed = false
 
 currentGold = 200
 
+playerTurn = true
 playerAlive = true
 
 abilityUIToggle = false

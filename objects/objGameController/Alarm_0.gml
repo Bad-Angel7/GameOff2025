@@ -13,20 +13,19 @@ if instance_exists(objPlayer)
 		target.drenched -= 1
 		target.ignite -= 1
 		target.frost -= 1
+		target.weak -= 1
+		target.shatter -= 1
 	}
 
-
+	objPlayer.playerTurn = true
 	objPlayer.currentArmor = 0
 	objPlayer.currentEnergy = objPlayer.maxEnergy
 	timerBuffer = game_get_speed(gamespeed_fps) * 3
 	bonusTimer = game_get_speed(gamespeed_fps) * 10
+	audio_play_sound(sfxRoundStart, 0, 0)
 
 
-	if instance_exists(objEnemyParent)
-	{
-	
-	}
-	else
+	if !instance_exists(objEnemyParent)
 	{
 		waveCounter++
 		

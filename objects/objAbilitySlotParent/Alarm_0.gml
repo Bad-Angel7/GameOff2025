@@ -33,21 +33,21 @@ ini_close()
 switch (ability) 
 {
 	case "Empty":
-		name = "Empty"
+		//name = "Empty"
 		sprite_index = sprEmpty
-		damage = noone
-		armor = noone
-		energyCost = noone
-		multitarget = false
-		audio = noone
-		canTargetEnemy = false
-		canTargetPlayer = false
+		//damage = noone
+		//armor = noone
+		//energyCost = noone
+		//multitarget = false
+		//audio = noone
+		//canTargetEnemy = false
+		//canTargetPlayer = false
 		
-		ignite = false
-		frost = false
-		drenched = false
-		statusEffect = noone
-		statusTurn = noone
+		//ignite = false
+		//frost = false
+		//drenched = false
+		//statusEffect = noone
+		//statusTurn = noone
 		break;
 	
 	case "MagicMissle":
@@ -82,8 +82,11 @@ switch (ability)
 		canTargetEnemy = true
 
 		frost = true
+		weak = true
 		statusEffect = frost
-		statusTurn = 4
+		statusTurn = 3
+		statusEffect2 = weak
+		statusTurn2 = 2
 		break;
 		
 	case "WaterBlast":
@@ -97,8 +100,11 @@ switch (ability)
 
 
 		drenched = true
+		shatter = true
 		statusEffect = drenched
 		statusTurn = 3
+		statusEffect2 = shatter
+		statusTurn2 = 2
 		break;
 		
 	case "Shield":

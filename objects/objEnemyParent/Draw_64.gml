@@ -31,7 +31,7 @@ if drenched > 0
 
 if ignite > 0 
 {
-	draw_sprite_stretched(sprIgnite2, 0, ignitex, ignitey, 32, 32)
+	draw_sprite_stretched(sprIgnite, 0, ignitex, ignitey, 32, 32)
 	draw_text_ext_transformed(ignitex, ignitey + 24,string(ignite), 16, 64, 2, 2, 0)
 }
 
@@ -39,4 +39,16 @@ if frost > 0
 {
 	draw_sprite_stretched(sprFrost, 0, frostx, frosty, 32, 32)
 	draw_text_ext_transformed(frostx, frosty + 24,string(frost), 16, 64, 2, 2, 0)
+}
+
+if weak > 0 
+{
+	draw_sprite_stretched(sprWeak, 0, weakx, weaky, 32, 32)
+	draw_text_ext_transformed(weakx, weaky + 24,string(weak), 16, 64, 2, 2, 0)
+}
+
+if shatter > 0 
+{
+	draw_sprite_stretched(sprShatter, 0, shatterx, shattery, 32, 32)
+	draw_text_ext_transformed(shatterx, shattery + 24,string(shatter), 16, 64, 2, 2, 0)
 }

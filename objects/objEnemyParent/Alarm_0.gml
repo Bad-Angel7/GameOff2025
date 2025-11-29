@@ -18,6 +18,4 @@ for (var i = 0; i < enemies; ++i)
 		nextAttackIndex = irandom(array_length(attackArray) - 1)
 		nextAttack = attackArray[nextAttackIndex]
 	}
-	
-	
 }

@@ -9,7 +9,7 @@ function enemyActions(action)
 			damage = floor(damage * 1.25)
 		}
 		
-		if frost > 0
+		if weak > 0
 		{
 			damage = floor(damage * .75) 
 		}
@@ -37,9 +37,12 @@ function enemyActions(action)
 				objPlayer.cloakUsed = true
 				damage = 0
 			}
+			
+			global.textDamage = damage
+			layer_sequence_create("Assets_1", objPlayer.x, objPlayer.y - objPlayer.sprite_height, seqDamage)
 			objPlayer.currentHP -= damage
 			
-			if damage > 0 && ds_list_find_index(global.inventory, "Armor of the Battlemage") > -1
+			if damage > 0 && ds_list_find_index(global.inventory, "Battlemage Armor") > -1
 			{
 				objPlayer.currentMana += 1
 			}
@@ -48,15 +51,12 @@ function enemyActions(action)
 	
 	if armor != noone
 	{
-		if drenched > 0
+		if shatter > 0
 		{
 			armor = floor(armor * global.armorReduction) 
 		}
 		target = instance_nearest(x, y, objEnemyParent)
 		target.currentArmor += armor
 	}
-	
 	actionUsed = true
-	with (objGameController)
-		alarm[0] = 120
 }

@@ -17,6 +17,7 @@ switch (buttonID)
 		objPauseController.paused = false
 		layer_set_visible("StatsLayer", true)
 		layer_set_visible("AbilityIconsLayer", true)
+		layer_set_visible("MeasuringLayer", true)
 		layer_set_visible("SelectionLayer", false)
 		layer_set_visible("DeathLayer", false)
 		layer_set_visible("PauseLayer", false)
@@ -26,6 +27,7 @@ switch (buttonID)
 		break;
 		
 	case 3: // Index
+		menuAudioUpdate()
 		layer_set_visible("MainMenuLayer", false)
 		layer_set_visible("PauseLayer", false)
 		layer_set_visible("IndexLayer", true)
@@ -55,6 +57,7 @@ switch (buttonID)
 		layer_set_visible("AbilityIconsLayer", false)
 		layer_set_visible("MeasuringLayer", false)
 		room_goto(mainMenuRoom)
+		game_restart()
 		break;
 	
 	case 6: // Quit

@@ -8,6 +8,8 @@ currentArmor = 0
 drenched = 0
 ignite = 0
 frost = 0
+weak = 0
+shatter = 0
 
 gold = 2 + floor(objGameController.waveCounter/2)
 

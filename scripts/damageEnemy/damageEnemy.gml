@@ -20,6 +20,12 @@ function damageEnemy(damage, enemytodamage)
 	}
 	else statusEffect = noone
 	
+	if variable_instance_exists(global.currentAbility, "statusEffect2")
+	{
+		statusEffect2 = variable_instance_exists(global.currentAbility, "statusEffect2")
+	}
+	else statusEffect2 = noone
+	
 	//Resets the ability damage to what it SHOULD be since we are subtracting it after armor
 	abilityDamage = damage
 	
@@ -35,6 +41,8 @@ function damageEnemy(damage, enemytodamage)
 			{
 				enemyInstances[i] = instance_find(objEnemyParent, i)
 				target = enemyInstances[i]
+				global.textDamage = damage
+				layer_sequence_create("Assets_1", target.x, target.y - target.sprite_height, seqDamage)
 				damage = abilityDamage
 				
 				if target.currentArmor !=0 
@@ -58,9 +66,8 @@ function damageEnemy(damage, enemytodamage)
 				}
 				
 				//Check if there is a status effect to reduce amount of checks required
-				if statusEffect != noone
+				if statusEffect != noone || statusEffect2 != noone
 				{
-					//Make sure all the status effects besides their own is FALSE!!
 					if statusEffect == variable_instance_exists(global.currentAbility, "drenched")
 					{
 						target.drenched = global.currentAbility.statusTurn
@@ -72,9 +79,13 @@ function damageEnemy(damage, enemytodamage)
 							target.currentHP -= 10
 							target.ignite = 0
 							target.frost = 0
+							global.textDamage = 10
+							layer_sequence_create("Assets_1", target.x, target.y - target.sprite_height, seqDamage)
 							if ds_list_find_index(global.inventory, "Ice Crystal") > -1
 							{
 								target.currentHP -= 10
+								global.textDamage = 10
+								layer_sequence_create("Assets_1", target.x, target.y - target.sprite_height, seqDamage)
 							}
 						}
 						else
@@ -85,7 +96,17 @@ function damageEnemy(damage, enemytodamage)
 							}
 							target.ignite += global.currentAbility.statusTurn
 						}
-					}	
+					}				
+				}
+				
+				if statusEffect2 == variable_instance_exists(global.currentAbility, "weak")
+				{
+					target.weak = global.currentAbility.statusTurn2
+				}
+				
+				if statusEffect2 == variable_instance_exists(global.currentAbility, "shatter")
+				{
+					target.shatter = global.currentAbility.statusTurn2
 				}
 			}
 		}
@@ -93,6 +114,8 @@ function damageEnemy(damage, enemytodamage)
 	else
 	{
 		target = enemytodamage
+		global.textDamage = damage
+		layer_sequence_create("Assets_1", target.x, target.y - target.sprite_height, seqDamage)
 		if target.currentArmor !=0 
 		{
 			var damageReduction = target.currentArmor
@@ -112,9 +135,7 @@ function damageEnemy(damage, enemytodamage)
 		{
 			target.currentHP -= damage
 		}
-		
 
-		
 		if statusEffect == variable_instance_exists(global.currentAbility, "frost")
 		{
 			show_debug_message("Frost applied")
@@ -132,6 +153,16 @@ function damageEnemy(damage, enemytodamage)
 			{
 				target.frost = global.currentAbility.statusTurn
 			}
+		}
+		
+		if statusEffect2 == variable_instance_exists(global.currentAbility, "weak")
+		{
+			target.weak = global.currentAbility.statusTurn2
+		}
+		
+		if statusEffect2 == variable_instance_exists(global.currentAbility, "shatter")
+		{
+			target.shatter = global.currentAbility.statusTurn2
 		}
 	}
 }

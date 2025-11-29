@@ -9,5 +9,8 @@ audio = sfxFrostBeam
 canTargetEnemy = true
 
 frost = true
+weak = true
 statusEffect = frost
-statusTurn = 4
+statusTurn = 3
+statusEffect2 = weak
+statusTurn2 = 2

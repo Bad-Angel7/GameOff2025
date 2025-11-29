@@ -17,7 +17,10 @@
 if instance_exists(objGameController)
 {
 	draw_text_ext_transformed(healthbarx - (objGameController.displayResolutionX / 8), healthbary, "Energy: " + string(currentEnergy), 16, 64, 2, 2, 0)
-	draw_text_ext_transformed(healthbarx - (objGameController.displayResolutionX / 8), healthbary + 64, "Mana: " + string(currentMana), 16, 64, 2, 2, 0)
+	if ds_list_find_index(global.inventory, "Battlemage Armor") > -1
+	{
+		draw_text_ext_transformed(healthbarx - (objGameController.displayResolutionX / 8), healthbary + 64, "Mana: " + string(currentMana), 16, 64, 2, 2, 0)
+	}
 
 	if currentArmor > 0 
 	{
@@ -117,6 +120,38 @@ if global.currentAbility != noone
 		layer_text_text(textIDStatusTurn, "")
 	}
 	
+	//Status2 Definitely a much better way to do this but idk atm
+	var textPanelStatus2Type = flexpanel_node_get_child(uiLayer, "AbilityStatus2")
+	var textStructStatus2Type = flexpanel_node_get_struct(textPanelStatus2Type)
+	var textIDStatus2Type = textStructStatus2Type.layerElements[0].elementId
+	
+	if variable_instance_exists(global.currentAbility, "weak")
+	{
+		layer_text_text(textIDStatus2Type, "Weak")
+	}
+	else if variable_instance_exists(global.currentAbility, "shatter")
+	{
+		layer_text_text(textIDStatus2Type, "Shatter")
+	}
+	else //Should probably find a better way to toggle this??
+	{
+		layer_text_text(textIDStatus2Type, "")
+	}
+	
+	//Status turns2
+	var textPanelStatus2Turn = flexpanel_node_get_child(uiLayer, "StatusTurn2")
+	var textStructStatus2Turn = flexpanel_node_get_struct(textPanelStatus2Turn)
+	var textIDStatus2Turn = textStructStatus2Turn.layerElements[0].elementId
+	
+	if variable_instance_exists(global.currentAbility, "statusTurn2")
+	{
+		layer_text_text(textIDStatus2Turn, global.currentAbility.statusTurn2)
+	}
+	else
+	{
+		layer_text_text(textIDStatus2Turn, "")
+	}
+	
 	//AOE Type
 	var textPanelAoeType = flexpanel_node_get_child(uiLayer, "AbilityAoe")
 	var textStructAoeType = flexpanel_node_get_struct(textPanelAoeType)
@@ -183,125 +218,6 @@ if position_meeting(mouse_x, mouse_y, objPlayer)
 //	break;
 //}
 
-if keyboard_check_pressed(ord("1"))
-{
-	if abilityUIToggle == false
-	{
-		global.currentAbility = objAbility1
-		global.ability = global.currentAbility
-	}
-
-	if abilityUIToggle == true && global.currentAbility == objAbility1
-	{
-		global.currentAbility = noone
-		global.ability = global.currentAbility
-	}
-	else if abilityUIToggle == true && global.currentAbility != objAbility1
-	{
-		global.currentAbility = objAbility1
-		global.ability = global.currentAbility
-	}
-}
-else if keyboard_check_pressed(ord("2"))
-{
-	if abilityUIToggle == false
-	{
-		global.currentAbility = objAbility2
-		global.ability = global.currentAbility
-	}
-
-	if abilityUIToggle == true && global.currentAbility == objAbility2
-	{
-		global.currentAbility = noone
-		global.ability = global.currentAbility
-	}
-	else if abilityUIToggle == true && global.currentAbility != objAbility2
-	{
-		global.currentAbility = objAbility2
-		global.ability = global.currentAbility
-	}
-}
-else if keyboard_check_pressed(ord("3"))
-{
-	if abilityUIToggle == false
-	{
-		global.currentAbility = objAbility3
-		global.ability = global.currentAbility
-	}
-
-	if abilityUIToggle == true && global.currentAbility == objAbility3
-	{
-		global.currentAbility = noone
-		global.ability = global.currentAbility
-	}
-	else if abilityUIToggle == true && global.currentAbility != objAbility3
-	{
-		global.currentAbility = objAbility3
-		global.ability = global.currentAbility
-	}
-}
-else if keyboard_check_pressed(ord("4"))
-{
-	if abilityUIToggle == false
-	{
-		global.currentAbility = objAbility4
-		global.ability = global.currentAbility
-	}
-
-	if abilityUIToggle == true && global.currentAbility == objAbility4
-	{
-		global.currentAbility = noone
-		global.ability = global.currentAbility
-	}
-	else if abilityUIToggle == true && global.currentAbility != objAbility4
-	{
-		global.currentAbility = objAbility4
-		global.ability = global.currentAbility
-	}
-}
-else if keyboard_check_pressed(ord("5"))
-{
-	if abilityUIToggle == false
-	{
-		global.currentAbility = objAbility5
-		global.ability = global.currentAbility
-	}
-
-	if abilityUIToggle == true && global.currentAbility == objAbility5
-	{
-		global.currentAbility = noone
-		global.ability = global.currentAbility
-	}
-	else if abilityUIToggle == true && global.currentAbility != objAbility5
-	{
-		global.currentAbility = objAbility5
-		global.ability = global.currentAbility
-	}
-}
-else if position_meeting(mouse_x, mouse_y, objAbilityParent)
-{
-	abilityTarget = instance_nearest(mouse_x, mouse_y, objAbilityParent)
-	if mouse_check_button_pressed(mb_left)
-	{
-		if abilityUIToggle == false
-		{
-			global.currentAbility = abilityTarget
-			global.ability = global.currentAbility
-		}
-
-		if abilityUIToggle == true && global.currentAbility == abilityTarget
-		{
-			global.currentAbility = noone
-			global.ability = global.currentAbility
-		}
-		else if abilityUIToggle == true && global.currentAbility != abilityTarget
-		{
-			global.currentAbility = abilityTarget
-			global.ability = global.currentAbility
-		}
-	}
-
-}
 //else if (position_meeting(mouse_x, mouse_y, objMagicMissle))
 //{
 //	global.ability = instance_nearest(mouse_x, mouse_y, objMagicMissle)

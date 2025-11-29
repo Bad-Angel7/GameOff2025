@@ -21,8 +21,11 @@ ignitex = x - (sprite_width/8)
 ignitey = y + (sprite_height/2)
 frostx = x - (sprite_width/16)
 frosty = y + (sprite_height/2)
-//drenchedx = x - (sprite_width/2)
-//drenchedy = y + (sprite_height/2)
+weakx = x - (sprite_width/1.25)
+weaky = y + (sprite_height/18)
+shatterx = x - (sprite_width/1.25)
+shattery = y - (sprite_height/2.5)
+
 
 
 if timer >= 0 
@@ -48,7 +51,7 @@ switch(nextAttack)
 			damage = floor(damage * 1.25)
 		}
 		damageText = damage
-		if frost > 0
+		if weak > 0
 		{
 			damageText = floor(damage * global.damageReduction)
 		}
@@ -62,7 +65,7 @@ switch(nextAttack)
 			damage = floor(damage * 1.25)
 		}
 		damageText = damage
-		if frost > 0
+		if weak > 0
 		{
 			damageText = floor(damage * global.damageReduction)
 		}
@@ -73,7 +76,7 @@ switch(nextAttack)
 		damage = noone
 		armor = 6
 		armorText = armor
-		if drenched > 0
+		if shatter > 0
 		{
 			armorText = floor(armor * global.armorReduction) 
 		}

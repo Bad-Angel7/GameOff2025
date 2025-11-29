@@ -2,6 +2,15 @@
 // You can write your code in this editor
 
 //changeable health bar settings
+
+///Check if game controller exists for restart
+if !instance_exists(objGameController)
+{
+	instance_create_depth(x, y, 0, objGameController)
+	with objGameController
+		alarm[1] = 1
+}
+
 if instance_exists(objGameController)
 {
 	healthbarwidth = objGameController.displayResolutionX
@@ -12,6 +21,8 @@ if instance_exists(objGameController)
 	//ystart - 100 is 100 pixels above player
 	healthbary = ystart - sprite_height
 }
+
+
 
 //Find enemy nearest mouse position and apply ability damage to them
 //Going to try to find a way to select enemy position instead of enemy type in the future
@@ -102,6 +113,129 @@ else
 	//Reset Debug ID when mouse off current target so it doesn't spam logs
 	debugShown = false
 }
+
+if keyboard_check_pressed(ord("1"))
+{
+	if abilityUIToggle == false
+	{
+		global.currentAbility = objAbility1
+		global.ability = global.currentAbility
+	}
+
+	if abilityUIToggle == true && global.currentAbility == objAbility1
+	{
+		global.currentAbility = noone
+		global.ability = global.currentAbility
+	}
+	else if abilityUIToggle == true && global.currentAbility != objAbility1
+	{
+		global.currentAbility = objAbility1
+		global.ability = global.currentAbility
+	}
+}
+else if keyboard_check_pressed(ord("2"))
+{
+	if abilityUIToggle == false
+	{
+		global.currentAbility = objAbility2
+		global.ability = global.currentAbility
+	}
+
+	if abilityUIToggle == true && global.currentAbility == objAbility2
+	{
+		global.currentAbility = noone
+		global.ability = global.currentAbility
+	}
+	else if abilityUIToggle == true && global.currentAbility != objAbility2
+	{
+		global.currentAbility = objAbility2
+		global.ability = global.currentAbility
+	}
+}
+else if keyboard_check_pressed(ord("3"))
+{
+	if abilityUIToggle == false
+	{
+		global.currentAbility = objAbility3
+		global.ability = global.currentAbility
+	}
+
+	if abilityUIToggle == true && global.currentAbility == objAbility3
+	{
+		global.currentAbility = noone
+		global.ability = global.currentAbility
+	}
+	else if abilityUIToggle == true && global.currentAbility != objAbility3
+	{
+		global.currentAbility = objAbility3
+		global.ability = global.currentAbility
+	}
+}
+else if keyboard_check_pressed(ord("4"))
+{
+	if abilityUIToggle == false
+	{
+		global.currentAbility = objAbility4
+		global.ability = global.currentAbility
+	}
+
+	if abilityUIToggle == true && global.currentAbility == objAbility4
+	{
+		global.currentAbility = noone
+		global.ability = global.currentAbility
+	}
+	else if abilityUIToggle == true && global.currentAbility != objAbility4
+	{
+		global.currentAbility = objAbility4
+		global.ability = global.currentAbility
+	}
+}
+else if keyboard_check_pressed(ord("5"))
+{
+	if abilityUIToggle == false
+	{
+		global.currentAbility = objAbility5
+		global.ability = global.currentAbility
+	}
+
+	if abilityUIToggle == true && global.currentAbility == objAbility5
+	{
+		global.currentAbility = noone
+		global.ability = global.currentAbility
+	}
+	else if abilityUIToggle == true && global.currentAbility != objAbility5
+	{
+		global.currentAbility = objAbility5
+		global.ability = global.currentAbility
+	}
+}
+
+if position_meeting(mouse_x, mouse_y, objAbilityParent)
+{
+	abilityTarget = instance_nearest(mouse_x, mouse_y, objAbilityParent)
+	
+	if mouse_check_button_pressed(mb_left)
+	{
+		if abilityUIToggle == false
+		{
+			global.currentAbility = abilityTarget
+			global.ability = global.currentAbility
+		}
+
+		if abilityUIToggle == true && global.currentAbility == abilityTarget
+		{
+			global.currentAbility = noone
+			global.ability = global.currentAbility
+		}
+		else if abilityUIToggle == true && global.currentAbility != abilityTarget
+		{
+			global.currentAbility = abilityTarget
+			global.ability = global.currentAbility
+		}
+	}
+
+}
+
 
 //switch (inventory) 
 //{

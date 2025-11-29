@@ -34,7 +34,7 @@ if instance_exists(objItemParent)
 			case "Wet Blade":
 		        name = "Wet Blade"
 				sprite_index = sprWetBlade
-				description = "DRENCHED status now reduces enemies block by 50 percent"
+				description = "SHATTER status now reduces enemies block by 50 percent"
 				price = 25
 		        break;
 		
@@ -66,8 +66,8 @@ if instance_exists(objItemParent)
 				price = 42
 		        break;
 				
-			case "Armor of the Battlemage":
-			    name = "Armor of the Battlemage"
+			case "Battlemage Armor":
+			    name = "Battlemage Armor"
 				sprite_index = sprArmorOfTheBattlemage
 				description = "Taking health damage gives you mana"
 				price = 60

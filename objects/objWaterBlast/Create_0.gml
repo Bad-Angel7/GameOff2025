@@ -10,5 +10,8 @@ canTargetEnemy = true
 
 
 drenched = true
+shatter = true
 statusEffect = drenched
 statusTurn = 3
+statusEffect2 = shatter
+statusTurn2 = 2
