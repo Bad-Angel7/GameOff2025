@@ -1,25 +1,25 @@
 /// @description Insert description here
 // You can write your code in this editor
 
-draw_text_ext_transformed(healthbarx, healthbary, string(currentHP) + "/" + string(maxHP), 4, 64, 2, 2, 0)
-
-draw_text_ext_transformed(statusx, statusy, string(nextAttack), 4, 64, 2, 2, 0)
+draw_sprite_stretched(sprPlayerHealth, 0, healthbarx + 66, healthbary - 24, 32, 32)
+draw_text_ext_transformed(healthbarx + 64, healthbary, string(currentHP), 4, 64, 2, 2, 0)
 
 if damage != noone
 {
-	draw_text_ext_transformed(statusx, statusy + 32,"Damage: " + string(damageText), 16, 64, 2, 2, 0)
+	draw_sprite_stretched(sprEnemyAttack, 0, healthbarx, healthbary + 32, 32, 32)
+	draw_text_ext_transformed(healthbarx + 32, healthbary + 32, string(damageText), 16, 64, 2, 2, 0)
 }
-
-
 
 if armor != noone
 {
-	draw_text_ext_transformed(statusx, statusy + 32,"Armor: " + string(armorText), 16, 64, 2, 2, 0)
+	draw_sprite_stretched(sprEnemyBlock, 0, healthbarx, healthbary + 32, 32, 32)
+	draw_text_ext_transformed(healthbarx + 32, healthbary + 32, string(armorText), 16, 64, 2, 2, 0)
 }
 
 if currentArmor > 0
 {
-	draw_text_ext_transformed(healthbarx, healthbary - 64,"Armor: " + string(currentArmor), 16, 64, 2, 2, 0)
+	draw_sprite_stretched(sprPlayerArmor, 0, healthbarx + 20, healthbary - 24, 32, 32)
+	draw_text_ext_transformed(healthbarx + 16, healthbary, string(currentArmor), 16, 64, 2, 2, 0)
 }
 
 

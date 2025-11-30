@@ -10,7 +10,7 @@
   "compression":1,
   "compressionQuality":4,
   "conversionMode":0,
-  "duration":6.6206803,
+  "duration":23.379591,
   "exportDir":"",
   "name":"sfxPause2",
   "parent":{

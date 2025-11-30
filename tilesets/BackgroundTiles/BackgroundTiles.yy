@@ -18,8 +18,8 @@
   "out_tilehborder":2,
   "out_tilevborder":2,
   "parent":{
-    "name":"Game Off 2025",
-    "path":"Game Off 2025.yyp",
+    "name":"GameOff2025",
+    "path":"GameOff2025.yyp",
   },
   "resourceType":"GMTileSet",
   "resourceVersion":"2.0",

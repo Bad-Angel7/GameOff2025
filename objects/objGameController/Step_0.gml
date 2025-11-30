@@ -6,6 +6,10 @@
 //	waveCounter += 1
 //}
 
+//if keyboard_check_pressed(vk_f2)
+//{
+//	objPlayer.currentHP -= 10000
+//}
 ///Transition to and from rooms. Will be useful for the shop
 ///Stops sounds but lets other things like the UI, timer and probably SFX slip through. Should be fixed
 //if keyboard_check_pressed(vk_f12)
@@ -27,51 +31,22 @@
 
 if keyboard_check_pressed(vk_space) && room = battleRoom && objPlayer.playerTurn = true
 {
-	if instance_exists(objEnemyParent)
-	{
-		var enemies = instance_number(objEnemyParent)
-		var enemyInstances = array_create(enemies)
-		
-		for (var i = 0; i < enemies; ++i)
-		{
-			enemyInstances[i] = instance_find(objEnemyParent, i)
-			target = enemyInstances[i]
-			if target.ignite > 0
-			{
-				target.currentHP -= target.ignite
-				global.textDamage = target.ignite
-				layer_sequence_create("Assets_1", target.x, target.y - target.sprite_height, seqDamage)
-			}
-		}
-		with (objEnemyParent)
-			alarm[0] = 60
-		
-		alarm[0] = 120
-	}
-	else
-	{
-		alarm[0] = 120
-	}
-
-	objPlayer.playerTurn = false
-	objPlayer.currentEnergy = 0
-	timerBuffer= 0
-	bonusTimer = 0
+	alarm[2] = 1
 }
 
-if keyboard_check_pressed(vk_f11)
-{
-	if window_get_fullscreen() == false
-	{
-		window_set_fullscreen(true)
-		window_enable_borderless_fullscreen(true)
-	}
-	else
-	{
-		window_set_fullscreen(false)
-		window_enable_borderless_fullscreen(false)
-	}
-}
+//if keyboard_check_pressed(vk_f11)
+//{
+//	if window_get_fullscreen() == false
+//	{
+//		window_set_fullscreen(true)
+//		window_enable_borderless_fullscreen(true)
+//	}
+//	else
+//	{
+//		window_set_fullscreen(false)
+//		window_enable_borderless_fullscreen(false)
+//	}
+//}
 
 if instance_exists(objPlayer)
 {
@@ -87,6 +62,20 @@ if instance_exists(objPlayer)
 		layer_set_visible("DeathLayer", true)
 		audio_stop_all()
 		audio_play_sound(sfxLoop, 0, true)
+		
+		var uiLayer = layer_get_flexpanel_node("DeathLayer")
+		
+		//Name
+		var wavePanelName = flexpanel_node_get_child(uiLayer, "WaveNumber")
+		var waveStructName = flexpanel_node_get_struct(wavePanelName)
+		var waveIDName = waveStructName.layerElements[0].elementId
+		layer_text_text(waveIDName, waveCounter)
+		
+		//Name
+		var scorePanelName = flexpanel_node_get_child(uiLayer, "ScoreNumber")
+		var scoreStructName = flexpanel_node_get_struct(scorePanelName)
+		var scoreIDName = scoreStructName.layerElements[0].elementId
+		layer_text_text(scoreIDName, currentScore)
 	}
 }
 
@@ -101,23 +90,5 @@ if room = battleRoom && objPauseController.paused = false
 	if bonusTimer > 0 && timerBuffer = 0
 	{
 		bonusTimer--
-	}
-}
-
-if room = mainMenuRoom
-{
-	if audio_is_playing(sfxMainMenu)
-	{
-		timer = 240
-	}
-	
-	if !audio_is_playing(sfxMainMenu)
-	{
-		timer--
-		
-		if timer <= 0
-		{
-			audio_play_sound(sfxMainMenu, 0, 0)
-		}
 	}
 }

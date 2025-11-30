@@ -16,16 +16,19 @@
 //draw_text_ext_transformed(healthbarx, healthbary, string(currentHP) + "/" + string(maxHP), 4, 64, 2, 2, 0)
 if instance_exists(objGameController)
 {
-	draw_text_ext_transformed(healthbarx - (objGameController.displayResolutionX / 8), healthbary, "Energy: " + string(currentEnergy), 16, 64, 2, 2, 0)
-	if ds_list_find_index(global.inventory, "Battlemage Armor") > -1
-	{
-		draw_text_ext_transformed(healthbarx - (objGameController.displayResolutionX / 8), healthbary + 64, "Mana: " + string(currentMana), 16, 64, 2, 2, 0)
-	}
-
-	if currentArmor > 0 
-	{
-		draw_text_ext_transformed(healthbarx, healthbary - 64, "Armor: " + string(currentArmor), 16, 64, 2, 2, 0)
-	}
+	var uiLayer = layer_get_flexpanel_node("MeasuringLayer")
+	
+	//Energy
+	var energyPanelName = flexpanel_node_get_child(uiLayer, "Energy")
+	var energyStructName = flexpanel_node_get_struct(energyPanelName)
+	var energyIDName = energyStructName.layerElements[0].elementId
+	layer_text_text(energyIDName, objPlayer.currentEnergy)
+	
+	//Mana
+	var manaPanelName = flexpanel_node_get_child(uiLayer, "Mana")
+	var manaStructName = flexpanel_node_get_struct(manaPanelName)
+	var manaIDName = manaStructName.layerElements[0].elementId
+	layer_text_text(manaIDName, objPlayer.currentMana)
 }
 
 
@@ -63,10 +66,19 @@ if global.currentAbility != noone
 	var textPanelDamage = flexpanel_node_get_child(uiLayer, "DamageNumber")
 	var textStructDamage = flexpanel_node_get_struct(textPanelDamage)
 	var textIDDamage = textStructDamage.layerElements[0].elementId
+	var textIDDamage2 = textStructDamage.layerElements[1].elementId
 	
 	if variable_instance_exists(global.currentAbility, "damage")
 	{
-		layer_text_text(textIDDamage, global.currentAbility.damage)
+		layer_sprite_change(textIDDamage2, sprEnemyAttack)
+		if ds_list_find_index(global.inventory, "Ceremonial Robes") > -1 && objPlayer.currentHP <= (objPlayer.maxHP / 2)
+		{
+			layer_text_text(textIDDamage, ceil(global.currentAbility.damage * 1.25))
+		}
+		else
+		{
+			layer_text_text(textIDDamage, global.currentAbility.damage)
+		}
 	}
 	else if variable_instance_exists(global.currentAbility, "heal")
 	{
@@ -74,6 +86,7 @@ if global.currentAbility != noone
 	}
 	else if variable_instance_exists(global.currentAbility, "armor")
 	{
+		layer_sprite_change(textIDDamage2, sprEnemyBlock)
 		layer_text_text(textIDDamage, global.currentAbility.armor)
 	}
 	
@@ -101,6 +114,10 @@ if global.currentAbility != noone
 	{
 		layer_text_text(textIDStatusType, "Frost")
 	}
+	else if variable_instance_exists(global.currentAbility, "lightning")
+	{
+		layer_text_text(textIDStatusType, "Lightning")
+	}
 	else //Should probably find a better way to toggle this??
 	{
 		layer_text_text(textIDStatusType, "")
@@ -110,10 +127,44 @@ if global.currentAbility != noone
 	var textPanelStatusTurn = flexpanel_node_get_child(uiLayer, "StatusTurn")
 	var textStructStatusTurn = flexpanel_node_get_struct(textPanelStatusTurn)
 	var textIDStatusTurn = textStructStatusTurn.layerElements[0].elementId
+	var textIDStatusTurn2 = textStructStatusTurn.layerElements[1].elementId
+	
+	if variable_instance_exists(global.currentAbility, "ignite")
+	{
+		layer_sprite_alpha(textIDStatusTurn2, 1)
+		layer_sprite_change(textIDStatusTurn2, sprIgnite)
+	}
+	else if variable_instance_exists(global.currentAbility, "drenched")
+	{
+		layer_sprite_alpha(textIDStatusTurn2, 1)
+		layer_sprite_change(textIDStatusTurn2, sprDrenched)
+	}
+	else if variable_instance_exists(global.currentAbility, "frost")
+	{
+		layer_sprite_alpha(textIDStatusTurn2, 1)
+		layer_sprite_change(textIDStatusTurn2, sprFrost)
+	}
+	else if variable_instance_exists(global.currentAbility, "lightning")
+	{
+		layer_sprite_alpha(textIDStatusTurn2, 1)
+		layer_sprite_change(textIDStatusTurn2, sprLightning)
+	}
+	else //Should probably find a better way to toggle this??
+	{
+		layer_sprite_alpha(textIDStatusTurn2, 0)
+	}
 	
 	if variable_instance_exists(global.currentAbility, "statusTurn")
 	{
-		layer_text_text(textIDStatusTurn, global.currentAbility.statusTurn)
+		if ds_list_find_index(global.inventory, "Incendiary Ring") > -1 && variable_instance_exists(global.currentAbility, "ignite")
+		{
+			layer_text_text(textIDStatusTurn, global.currentAbility.statusTurn + 1)
+		}
+		else 
+		{
+			layer_text_text(textIDStatusTurn, global.currentAbility.statusTurn)
+		}
+		
 	}
 	else
 	{
@@ -142,6 +193,22 @@ if global.currentAbility != noone
 	var textPanelStatus2Turn = flexpanel_node_get_child(uiLayer, "StatusTurn2")
 	var textStructStatus2Turn = flexpanel_node_get_struct(textPanelStatus2Turn)
 	var textIDStatus2Turn = textStructStatus2Turn.layerElements[0].elementId
+	var textIDStatus2Turn2 = textStructStatus2Turn.layerElements[1].elementId
+	
+	if variable_instance_exists(global.currentAbility, "weak")
+	{
+		layer_sprite_alpha(textIDStatus2Turn2, 1)
+		layer_sprite_change(textIDStatus2Turn2, sprWeak)
+	}
+	else if variable_instance_exists(global.currentAbility, "shatter")
+	{
+		layer_sprite_alpha(textIDStatus2Turn2, 1)
+		layer_sprite_change(textIDStatus2Turn2, sprShatter)
+	}
+	else //Should probably find a better way to toggle this??
+	{
+		layer_sprite_alpha(textIDStatus2Turn2, 0)
+	}
 	
 	if variable_instance_exists(global.currentAbility, "statusTurn2")
 	{
@@ -192,7 +259,17 @@ else
 	var textIDPlayerHealth = textStructPlayerHealth.layerElements[0].elementId
 	layer_text_text(textIDPlayerHealth, string(currentHP) + " : " + string(maxHP))
 	
-
+	//Armor
+	var textPanelPlayerArmor = flexpanel_node_get_child(statsLayer, "PlayerArmorText")
+	var textStructPlayerArmor = flexpanel_node_get_struct(textPanelPlayerArmor)
+	var textIDPlayerArmor = textStructPlayerArmor.layerElements[0].elementId
+	layer_text_text(textIDPlayerArmor, string(currentArmor))
+	
+	//Gold
+	var textPanelGold = flexpanel_node_get_child(statsLayer, "CurrentGold")
+	var textStructGold = flexpanel_node_get_struct(textPanelGold)
+	var textIDGold = textStructGold.layerElements[0].elementId
+	layer_text_text(textIDGold, string(currentGold))
 
 //parent?
 if position_meeting(mouse_x, mouse_y, objEnemyParent)

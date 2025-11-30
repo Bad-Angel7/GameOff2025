@@ -11,10 +11,15 @@ switch (buttonID)
 		break;
 	
 	case 2: // Restart
-	
-		///Crashes game with current UI for some reason
 		global.currentAbility = noone
 		objPauseController.paused = false
+		if instance_exists(objGameController)
+		{
+			objGameController.waveCounter = 1
+			objGameController.bonusTimer = game_get_speed(gamespeed_fps) * 20
+			objGameController.timerBuffer = game_get_speed(gamespeed_fps) * 5
+			objGameController.currentScore = 0
+		}
 		layer_set_visible("StatsLayer", true)
 		layer_set_visible("AbilityIconsLayer", true)
 		layer_set_visible("MeasuringLayer", true)
@@ -22,8 +27,8 @@ switch (buttonID)
 		layer_set_visible("DeathLayer", false)
 		layer_set_visible("PauseLayer", false)
 		audio_stop_all()
-		audio_play_sound(sfxMainThemeLoop, 0, true)
-		room_restart()
+		audio_play_sound(choose(sfxBattleMusic1, sfxBattleMusic2, sfxBattleMusic1, sfxBattleMusic4, sfxBattleMusic5), 0, 0)
+		room_goto(battleRoom)
 		break;
 		
 	case 3: // Index
@@ -43,13 +48,16 @@ switch (buttonID)
 		break;
 		
 	case 5: // Main Menu	
+		///Doesn't reset inventory items and I don't wanna fix it atm lol
 		objPauseController.paused = false
 		if room != mainMenuRoom
 		{
 			audio_stop_all()
-			audio_play_sound(sfxMainMenu, 0, true)
+			if instance_exists(objGameController)
+			{
+				objGameController.timer = 0
+			}	
 		}
-		menuAudioUpdate()
 		layer_set_visible("DeathLayer", false)
 		layer_set_visible("MainMenuLayer", true)
 		layer_set_visible("PauseLayer", false)
@@ -73,6 +81,7 @@ switch (buttonID)
 			layer_set_visible("StatsLayer", false)
 			layer_set_visible("AbilityIconsLayer", false)
 			layer_set_visible("SelectionLayer", false)
+			layer_set_visible("TutorialLayer", false)
 		}else
 		{
 			layer_set_visible("PauseLayer", true)
@@ -93,7 +102,6 @@ switch (buttonID)
 		layer_set_visible("MeasuringLayer", true)
 		audio_stop_all()
 		menuAudioUpdate()
-		audio_play_sound(sfxMainThemeLoop, 0, true)
 		break;
 	
 	case 9: //Class Select
@@ -137,5 +145,11 @@ switch (buttonID)
 		
 		with objAbilitySlotParent
 			alarm[0] = 1
+		break;
+		
+	case 11: //Tutorial
+		layer_set_visible("MainMenuLayer", false)
+		layer_set_visible("TutorialLayer", true)
+		menuAudioUpdate()
 		break;
 }

@@ -1,0 +1,26 @@
+{
+  "$GMSound":"v2",
+  "%Name":"sfxBattleMusic2",
+  "audioGroupId":{
+    "name":"agMusic",
+    "path":"audiogroups/agMusic",
+  },
+  "bitDepth":1,
+  "channelFormat":0,
+  "compression":1,
+  "compressionQuality":4,
+  "conversionMode":0,
+  "duration":116.5714,
+  "exportDir":"",
+  "name":"sfxBattleMusic2",
+  "parent":{
+    "name":"Battle Music",
+    "path":"folders/Sounds/Music/Battle Music.yy",
+  },
+  "preload":false,
+  "resourceType":"GMSound",
+  "resourceVersion":"2.0",
+  "sampleRate":44100,
+  "soundFile":"sfxBattleMusic2.mp3",
+  "volume":0.2,
+}

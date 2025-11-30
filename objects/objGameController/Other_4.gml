@@ -1,6 +1,10 @@
 /// @description Insert description here
 // You can write your code in this editor
 
+timer = 0
+mainMenuTheme()
+battleTheme()
+
 if room = battleRoom
 {
 	alarm[1] = 1
@@ -37,3 +41,4 @@ if room = mainMenuRoom
 	
 	instance_destroy(objInventoryItem)
 }
+

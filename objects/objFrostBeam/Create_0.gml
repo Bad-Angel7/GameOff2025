@@ -11,6 +11,6 @@ canTargetEnemy = true
 frost = true
 weak = true
 statusEffect = frost
-statusTurn = 3
+statusTurn = 2
 statusEffect2 = weak
 statusTurn2 = 2

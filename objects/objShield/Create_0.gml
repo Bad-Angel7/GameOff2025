@@ -4,5 +4,5 @@
 name = "Shield"
 armor = 10
 energyCost = 1
-audio = sfxShield
+audio = sfxShield2
 canTargetPlayer = true

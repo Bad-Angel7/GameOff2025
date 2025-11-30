@@ -25,8 +25,8 @@
   "nineSlice":null,
   "origin":4,
   "parent":{
-    "name":"Status Effects",
-    "path":"folders/Sprites/Status Effects.yy",
+    "name":"Abilities",
+    "path":"folders/Sprites/Abilities.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",

@@ -37,14 +37,19 @@ function enemyActions(action)
 				objPlayer.cloakUsed = true
 				damage = 0
 			}
-			
+			objPlayer.currentHP -= damage
 			global.textDamage = damage
 			layer_sequence_create("Assets_1", objPlayer.x, objPlayer.y - objPlayer.sprite_height, seqDamage)
-			objPlayer.currentHP -= damage
+			
 			
 			if damage > 0 && ds_list_find_index(global.inventory, "Battlemage Armor") > -1
 			{
-				objPlayer.currentMana += 1
+				objPlayer.currentMana += 2
+				audio_play_sound(choose(sfxManaGain1, sfxManaGain2, sfxManaGain3, sfxManaGain4, sfxManaGain5, sfxManaGain6), 0, 0)
+				if objPlayer.currentMana > 10
+				{
+					objPlayer.currentMana = 10
+				}
 			}
 		}
 	}

@@ -11,6 +11,16 @@ if !instance_exists(objGameController)
 		alarm[1] = 1
 }
 
+if !instance_exists(objEnemyParent)
+{
+	if roundEnd = false
+	{
+		roundEnd = true
+		with objGameController
+			alarm[2] = 1
+	}
+}
+
 if instance_exists(objGameController)
 {
 	healthbarwidth = objGameController.displayResolutionX
@@ -31,16 +41,10 @@ if (position_meeting(mouse_x, mouse_y, objEnemyParent))
 {
 	var enemytodamage = instance_nearest(mouse_x, mouse_y, objEnemyParent)
 	
-	//Show ID of current target to check if correct
-	if debugShown == false
-	{
-		show_debug_message(enemytodamage.id)
-		debugShown = true
-	}
 	if instance_exists(enemytodamage)
 	{
 		//On mouse button click, check to make sure an ability is selected and use said ability on target
-		if mouse_check_button_pressed(mb_left) && global.currentAbility != noone
+		if mouse_check_button_pressed(mb_left) && global.currentAbility != noone && playerTurn = true
 		{
 			if (currentEnergy - global.currentAbility.energyCost) > -1 && variable_instance_exists(global.currentAbility, "canTargetEnemy")
 			{
@@ -64,6 +68,26 @@ if (position_meeting(mouse_x, mouse_y, objEnemyParent))
 				audio_play_sound(global.currentAbility.audio, 0, 0)
 				currentMana -= global.currentAbility.energyCost
 			}
+			else if ((currentEnergy + currentMana) - global.currentAbility.energyCost) > -1 && variable_instance_exists(global.currentAbility, "canTargetEnemy")
+			{
+				damageEnemy(global.currentAbility.damage, enemytodamage)
+				
+				if audio_is_playing(global.currentAbility.audio)
+				{
+					audio_stop_sound(global.currentAbility.audio)	
+				}
+				audio_play_sound(global.currentAbility.audio, 0, 0)
+				currentEnergy -= (global.currentAbility.energyCost / 2)
+				currentMana -= (global.currentAbility.energyCost / 2)
+			}
+			
+			if global.currentAbility.ability == "ManaBlast" && manaBlastUsed = false
+			{
+				currentMana = 0
+				manaBlastUsed = true
+				with objAbilitySlotParent
+					alarm[0] = 1
+			}
 			
 		}
 		
@@ -81,37 +105,52 @@ else if (position_meeting(mouse_x, mouse_y, objPlayer))
 {
 	if instance_exists(objPlayer)
 	{
-		if mouse_check_button_pressed(mb_left) && global.currentAbility != noone && global.currentAbility.canTargetPlayer == true
+		if mouse_check_button_pressed(mb_left) && global.currentAbility != noone && variable_instance_exists(global.currentAbility, "canTargetPlayer") && room = battleRoom && playerTurn = true
 		{
 			if (currentEnergy - global.currentAbility.energyCost) > -1
 			{
 				target = instance_nearest(mouse_x, mouse_y, objPlayer)
-				
+					
 				if variable_instance_exists(global.currentAbility, "heal")
 				{
 					playerHealth(target, global.currentAbility.heal, 0)
 				}
-				
+					
 				if variable_instance_exists(global.currentAbility, "armor")
 				{
 					playerHealth(target, 0, global.currentAbility.armor)
 				}
-				
+					
 				if audio_is_playing(global.currentAbility.audio)
 				{
 					audio_stop_sound(global.currentAbility.audio)	
 				}
 				audio_play_sound(global.currentAbility.audio, 0, 0)
-				show_debug_message("Player armor " + string(currentArmor))
 				currentEnergy -= global.currentAbility.energyCost
+			}
+			else if (currentMana - global.currentAbility.energyCost) > -1 && variable_instance_exists(global.currentAbility, "canTargetPlayer")
+			{
+				target = instance_nearest(mouse_x, mouse_y, objPlayer)
+					
+				if variable_instance_exists(global.currentAbility, "heal")
+				{
+					playerHealth(target, global.currentAbility.heal, 0)
+				}
+					
+				if variable_instance_exists(global.currentAbility, "armor")
+				{
+					playerHealth(target, 0, global.currentAbility.armor)
+				}
+					
+				if audio_is_playing(global.currentAbility.audio)
+				{
+					audio_stop_sound(global.currentAbility.audio)	
+				}
+				audio_play_sound(global.currentAbility.audio, 0, 0)
+				currentMana -= global.currentAbility.energyCost
 			}
 		}
 	}
-}
-else 
-{
-	//Reset Debug ID when mouse off current target so it doesn't spam logs
-	debugShown = false
 }
 
 if keyboard_check_pressed(ord("1"))

@@ -11,6 +11,8 @@ frost = 0
 weak = 0
 shatter = 0
 
+scorePoints = 60 + (20 * (objGameController.waveCounter -1))
+
 gold = 3 + floor(objGameController.waveCounter/2)
 
 timer = 0

@@ -53,30 +53,91 @@ switch (ability)
 	case "MagicMissle":
 	    name = "Magic Missle"
 		sprite_index = sprMagicMissle
-		damage = 15
+		if ds_list_find_index(global.inventory, "Ceremonial Robes") > -1 && objPlayer.currentHP <= (objPlayer.maxHP / 2)
+		{
+			damage = ceil(10 * 1.25)
+		}
+		else
+		{
+			damage = 10
+		}
 		energyCost = 1
 		audio = sfxMagicMissle
+		canTargetEnemy = true
+	    break;
+		
+	case "ManaBlast":
+	    name = "Mana Blast"
+		sprite_index = sprManaBlast
+		if instance_exists(objPlayer)
+		{
+			if ds_list_find_index(global.inventory, "Ceremonial Robes") > -1 && objPlayer.currentHP <= (objPlayer.maxHP / 2)
+			{
+				damage = ceil((objPlayer.currentMana * 3) * 1.25)
+			}
+			else
+			{
+				damage = (objPlayer.currentMana * 3)
+			}
+		}
+
+		energyCost = 0
+		audio = sfxManaBurst
 		canTargetEnemy = true
 	    break;
 	
 	case "Fireball":
 		name = "Fireball"
 		sprite_index = sprFireBall
-		damage = 10
+		if ds_list_find_index(global.inventory, "Ceremonial Robes") > -1 && objPlayer.currentHP <= (objPlayer.maxHP / 2)
+		{
+			damage = ceil(6 * 1.25)
+		}
+		else
+		{
+			damage = 6
+		}
 		energyCost = 2
 		multitarget = all
-		audio = sfxFireball
+		audio = sfxFireBall2
 		canTargetEnemy = true
 
 		ignite = true
 		statusEffect = ignite
-		statusTurn = 2
+		statusTurn = 3
+		break;
+		
+	case "FireBolt":
+		name = "Fire Bolt"
+		sprite_index = sprFireBolt
+		if ds_list_find_index(global.inventory, "Ceremonial Robes") > -1 && objPlayer.currentHP <= (objPlayer.maxHP / 2)
+		{
+			damage = ceil(5 * 1.25)
+		}
+		else
+		{
+			damage = 5
+		}
+		energyCost = 1
+		audio = sfxFireBolt
+		canTargetEnemy = true
+
+		ignite = true
+		statusEffect = ignite
+		statusTurn = 5
 		break;
 		
 	case "FrostBeam":
 		name = "Frost Beam"
 		sprite_index = sprFrostBeam
-		damage = 5
+		if ds_list_find_index(global.inventory, "Ceremonial Robes") > -1 && objPlayer.currentHP <= (objPlayer.maxHP / 2)
+		{
+			damage = ceil(5 * 1.25)
+		}
+		else
+		{
+			damage = 5
+		}
 		energyCost = 1
 		audio = sfxFrostBeam
 		canTargetEnemy = true
@@ -84,7 +145,7 @@ switch (ability)
 		frost = true
 		weak = true
 		statusEffect = frost
-		statusTurn = 3
+		statusTurn = 2
 		statusEffect2 = weak
 		statusTurn2 = 2
 		break;
@@ -93,7 +154,14 @@ switch (ability)
 		name = "Water Blast"
 		sprite_index = sprWaterBlast
 		energyCost = 1
-		damage = 5
+		if ds_list_find_index(global.inventory, "Ceremonial Robes") > -1 && objPlayer.currentHP <= (objPlayer.maxHP / 2)
+		{
+			damage = ceil(5 * 1.25)
+		}
+		else
+		{
+			damage = 5
+		}
 		multitarget = all
 		audio = sfxWaterBlast
 		canTargetEnemy = true
@@ -102,9 +170,28 @@ switch (ability)
 		drenched = true
 		shatter = true
 		statusEffect = drenched
-		statusTurn = 3
+		statusTurn = 2
 		statusEffect2 = shatter
 		statusTurn2 = 2
+		break;
+		
+	case "LightningBolt":
+		name = "Lightning Bolt"
+		sprite_index = sprLightningBolt
+		energyCost = 1
+		if ds_list_find_index(global.inventory, "Ceremonial Robes") > -1 && objPlayer.currentHP <= (objPlayer.maxHP / 2)
+		{
+			damage = ceil(8 * 1.25)
+		}
+		else
+		{
+			damage = 8
+		}
+		audio = sfxLightningZap5
+		canTargetEnemy = true
+
+		lightning = true
+		statusEffect = lightning
 		break;
 		
 	case "Shield":

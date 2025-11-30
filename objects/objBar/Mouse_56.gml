@@ -3,9 +3,13 @@
 
 isHeld = false
 
-//ini_open("Settings.ini")
+if layer_get_visible("SettingsLayer")
+{
+	ini_open("Settings.ini")
 
-//ini_key_delete("Volume", "Music Volume")
-//ini_write_real("Volume", "Music Volume", global.musicVolume)
+	ini_key_delete("Volume", "Music")
 
-//ini_close()
+	ini_write_real("Volume", "Music", global.musicVolume )
+	
+	ini_close()
+}

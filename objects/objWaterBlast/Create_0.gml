@@ -5,13 +5,13 @@ name = "Water Blast"
 energyCost = 1
 damage = 5
 multitarget = all
-audio = sfxWaterBlast
+audio = sfxWaterBlast2
 canTargetEnemy = true
 
 
 drenched = true
 shatter = true
 statusEffect = drenched
-statusTurn = 3
+statusTurn = 2
 statusEffect2 = shatter
 statusTurn2 = 2

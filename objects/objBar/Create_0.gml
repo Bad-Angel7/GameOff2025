@@ -5,21 +5,24 @@ maxValue = 100
 amountCurrent = 0
 isHeld = false
 
-//ini_open("Settings.ini")
 
-//global.musicVolume = ini_read_real("Volume", "Music Volume", 10) * 10
+ini_open("Settings.ini")
 
-//ini_close()
+global.musicVolume = (ini_read_real("Volume", "Music", 1) * 100)
 
-global.musicVolume = 10
+ini_close()
 
 switch(setting)
 {
 	case "music":
 		amountCurrent = global.musicVolume
+		global.musicVolume = amountCurrent
+		audio_group_set_gain(agMusic, amountCurrent / 100, 0)
+		audio_group_set_gain(agSFX, amountCurrent / 100, 0)
+		audio_group_set_gain(agMenuClick, amountCurrent / 100, 0)
 		break;
 		
 	case "sound":
-		amountCurrent = global.soundVolume
+		
 		break;
 }

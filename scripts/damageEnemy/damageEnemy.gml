@@ -3,13 +3,17 @@
 
 function damageEnemy(damage, enemytodamage)
 {
+	if ds_list_find_index(global.inventory, "Ceremonial Robes") > -1 && objPlayer.currentHP <= (objPlayer.maxHP / 2)
+	{
+		damage = ceil(damage * 1.25)
+	}
 	if ds_list_find_index(global.inventory, "Crit Ring") > -1
 	{
 		var randomNumber = irandom_range(0, 100)
-		if randomNumber>= 90
+		if randomNumber >= 90
 		{
-			damage = (damage * 2)
-			show_message_async(damage)
+			damage = ceil(damage * 2)
+			audio_play_sound(sfxCrit, 0, 0)
 		}
 	}
 
@@ -76,15 +80,32 @@ function damageEnemy(damage, enemytodamage)
 					{
 						if target.frost > 0
 						{
-							target.currentHP -= 10
+							if ds_list_find_index(global.inventory, "Ceremonial Robes") > -1 && objPlayer.currentHP <= (objPlayer.maxHP / 2)
+							{
+								target.currentHP -= ceil(10 * 1.25)
+							}
+							else
+							{
+								target.currentHP -= 10
+							}
+							audio_play_sound(sfxSystemShock, 0, 0)
 							target.ignite = 0
 							target.frost = 0
 							global.textDamage = 10
 							layer_sequence_create("Assets_1", target.x, target.y - target.sprite_height, seqDamage)
 							if ds_list_find_index(global.inventory, "Ice Crystal") > -1
 							{
-								target.currentHP -= 10
-								global.textDamage = 10
+								if ds_list_find_index(global.inventory, "Ceremonial Robes") > -1 && objPlayer.currentHP <= (objPlayer.maxHP / 2)
+								{
+									target.currentHP -= ceil(10 * 1.25)
+									global.textDamage = ceil(10 *1.25)
+								}
+								else
+								{
+									target.currentHP -= 10
+									global.textDamage = 10
+								}
+								
 								layer_sequence_create("Assets_1", target.x, target.y - target.sprite_height, seqDamage)
 							}
 						}
@@ -114,6 +135,65 @@ function damageEnemy(damage, enemytodamage)
 	else
 	{
 		target = enemytodamage
+		if statusEffect == variable_instance_exists(global.currentAbility, "lightning")
+		{
+			if target.drenched > 0
+			{
+				if ds_list_find_index(global.inventory, "Lightning Necklace") > -1
+				{
+					damage = ceil(damage * 2)
+				}
+				else
+				{
+					damage = ceil(damage * 1.50)
+				}
+			}
+		}
+		
+		else if statusEffect == variable_instance_exists(global.currentAbility, "ignite")
+		{
+			if target.frost > 0
+			{
+				if ds_list_find_index(global.inventory, "Ceremonial Robes") > -1 && objPlayer.currentHP <= (objPlayer.maxHP / 2)
+				{
+					target.currentHP -= ceil(10 * 1.25)
+				}
+				else
+				{
+					target.currentHP -= 10
+				}
+				
+				audio_play_sound(sfxSystemShock, 0, 0)
+				target.ignite = 0
+				target.frost = 0
+				global.textDamage = 10
+				layer_sequence_create("Assets_1", target.x, target.y - target.sprite_height, seqDamage)
+				if ds_list_find_index(global.inventory, "Ice Crystal") > -1
+				{
+					if ds_list_find_index(global.inventory, "Ceremonial Robes") > -1 && objPlayer.currentHP <= (objPlayer.maxHP / 2)
+					{
+						target.currentHP -= ceil(10 * 1.25)
+						global.textDamage = ceil(10 *1.25)
+					}
+					else
+					{
+						target.currentHP -= 10
+						global.textDamage = 10
+					}
+					
+					layer_sequence_create("Assets_1", target.x, target.y - target.sprite_height, seqDamage)
+				}
+			}
+			else
+			{
+				if ds_list_find_index(global.inventory, "Incendiary Ring") > -1
+				{
+					target.ignite += 1
+				}
+				target.ignite += global.currentAbility.statusTurn
+			}
+		}				
+		
 		global.textDamage = damage
 		layer_sequence_create("Assets_1", target.x, target.y - target.sprite_height, seqDamage)
 		if target.currentArmor !=0 
@@ -138,9 +218,9 @@ function damageEnemy(damage, enemytodamage)
 
 		if statusEffect == variable_instance_exists(global.currentAbility, "frost")
 		{
-			show_debug_message("Frost applied")
 			if target.ignite > 0
 			{
+				audio_play_sound(sfxSystemShock, 0, 0)
 				target.currentHP -= 10
 				target.ignite = 0
 				target.frost = 0

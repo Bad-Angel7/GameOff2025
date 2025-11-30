@@ -13,8 +13,9 @@ currentMana = 0
 global.dex = 0
 cloakUsed = false
 
-currentGold = 200
+currentGold = 20
 
+manaBlastUsed = false
 playerTurn = true
 playerAlive = true
 

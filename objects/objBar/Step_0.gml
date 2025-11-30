@@ -24,13 +24,11 @@ switch(setting)
 {
 	case "music":
 		global.musicVolume = amountCurrent
-		audio_sound_gain(sfxMainMenu, amountCurrent / 100, 0)
-		audio_sound_gain(sfxPause2, amountCurrent / 100, 0)
-		audio_sound_gain(sfxMainThemeLoop, amountCurrent / 100, 0)
-		audio_sound_gain(sfxShop2, amountCurrent / 100, 0)
+		audio_group_set_gain(agMusic, amountCurrent / 100, 0)
+		audio_group_set_gain(agSFX, amountCurrent / 100, 0)
+		audio_group_set_gain(agMenuClick, amountCurrent / 100, 0)
 		break;
 		
 	case "sound":
-		global.soundVolume = amountCurrent
 		break;
 }

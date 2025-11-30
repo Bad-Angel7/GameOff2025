@@ -140,8 +140,8 @@
   "maintainGms1Font":false,
   "name":"menuText",
   "parent":{
-    "name":"Game Off 2025",
-    "path":"Game Off 2025.yyp",
+    "name":"GameOff2025",
+    "path":"GameOff2025.yyp",
   },
   "pointRounding":0,
   "ranges":[

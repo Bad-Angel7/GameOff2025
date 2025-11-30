@@ -31,8 +31,8 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"sprShopHeart",
-    "path":"sprites/sprShopHeart/sprShopHeart.yy",
+    "name":"sprShopHeal",
+    "path":"sprites/sprShopHeal/sprShopHeal.yy",
   },
   "spriteMaskId":null,
   "visible":true,

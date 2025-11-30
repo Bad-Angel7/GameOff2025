@@ -35,6 +35,12 @@ switch(nextAttack)
 		{
 			damageText = floor(damage * global.damageReduction)
 		}
+		if displayText = true
+		{
+			global.textDamage = damage
+			layer_sequence_create("Assets_1", objPlayer.x, objPlayer.y - objPlayer.sprite_height, seqDamage)
+			displayText = false
+		}
 		armor = noone
 		break;
 		
@@ -49,6 +55,12 @@ switch(nextAttack)
 		{
 			damageText = floor(damage * global.damageReduction)
 		}
+		if displayText = true
+		{
+			global.textDamage = damage
+			layer_sequence_create("Assets_1", objPlayer.x, objPlayer.y - objPlayer.sprite_height, seqDamage)
+			displayText = false
+		}
 		armor = noone
 		break;
 		
@@ -58,7 +70,19 @@ switch(nextAttack)
 
 if currentHP <= 0
 {	
-	objPlayer.currentGold += gold
+	if ds_list_find_index(global.inventory, "Lucky Coin") > -1
+	{
+		var randomNumber = irandom_range(0, 100)
+		if randomNumber > 50
+		{
+			objPlayer.currentGold += ceil(gold * 2)
+		}
+	}
+	else
+	{
+		objPlayer.currentGold += gold
+	}	
+	objGameController.currentScore += scorePoints
 	
 	instance_destroy()
 }

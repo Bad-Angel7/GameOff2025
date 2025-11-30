@@ -5,7 +5,6 @@
 if position_meeting(mouse_x, mouse_y, objInventoryItem)
 {
 	itemHover = instance_nearest(mouse_x, mouse_y, objInventoryItem)
-	var uiLayer = layer_get_flexpanel_node("MeasuringLayer")
 
 	if itemHover.image_alpha != 0
 	{

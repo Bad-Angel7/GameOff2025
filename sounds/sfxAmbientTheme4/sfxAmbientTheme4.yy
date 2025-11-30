@@ -1,0 +1,26 @@
+{
+  "$GMSound":"v2",
+  "%Name":"sfxAmbientTheme4",
+  "audioGroupId":{
+    "name":"agMusic",
+    "path":"audiogroups/agMusic",
+  },
+  "bitDepth":1,
+  "channelFormat":0,
+  "compression":1,
+  "compressionQuality":4,
+  "conversionMode":0,
+  "duration":129.23074,
+  "exportDir":"",
+  "name":"sfxAmbientTheme4",
+  "parent":{
+    "name":"Main Theme",
+    "path":"folders/Sounds/Music/Main Theme.yy",
+  },
+  "preload":false,
+  "resourceType":"GMSound",
+  "resourceVersion":"2.0",
+  "sampleRate":44100,
+  "soundFile":"sfxAmbientTheme4.mp3",
+  "volume":0.4,
+}

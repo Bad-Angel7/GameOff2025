@@ -4,12 +4,18 @@
 
 if room = battleRoom && objPauseController.paused = false && instance_exists(objPlayer)
 {
-	draw_text_ext_transformed(displayResolutionX / 4, view_yport, string(bonusTimer) / 60, 4, 64, 2, 2, 0)
-	draw_text_ext_transformed(displayResolutionX / 8, view_yport, "Wave: " + string(waveCounter), 4, 128, 2, 2, 0)
-	draw_text_ext_transformed(displayResolutionX / 3, view_yport, "Gold: " + string(objPlayer.currentGold), 4, 128, 2, 2, 0)
+	var uiLayer = layer_get_flexpanel_node("StatsLayer")
 	
-}
-if room = shopRoom && objPauseController.paused = false && instance_exists(objPlayer)
-{
-	draw_text_ext_transformed(displayResolutionX / 3, view_yport, "Gold: " + string(objPlayer.currentGold), 4, 128, 2, 2, 0)
+	//Wave
+	var wavePanelName = flexpanel_node_get_child(uiLayer, "CurrentWave")
+	var waveStructName = flexpanel_node_get_struct(wavePanelName)
+	var waveIDName = waveStructName.layerElements[0].elementId
+	layer_text_text(waveIDName, string(waveCounter))
+	//draw_text_ext_transformed(displayResolutionX / 2, view_yport, "Score: " + string(currentScore), 4, 128, 2, 2, 0)
+	
+	//Timer
+	var timerPanelName = flexpanel_node_get_child(uiLayer, "BonusTimer")
+	var timerStructName = flexpanel_node_get_struct(timerPanelName)
+	var timerIDName = timerStructName.layerElements[0].elementId
+	layer_text_text(timerIDName, string_format((bonusTimer / 60), 2, 2))
 }

@@ -16,13 +16,46 @@ if instance_exists(objPlayer)
 		target.weak -= 1
 		target.shatter -= 1
 	}
-
+	
+	with objAbilitySlotParent
+		alarm[0] = 1
+	objPlayer.roundEnd = false
 	objPlayer.playerTurn = true
-	objPlayer.currentArmor = 0
+	objPlayer.manaBlastUsed = false
+	
+	if ds_list_find_index(global.inventory, "Sturdy Shield") > -1
+	{
+		if objPlayer.currentArmor > 10
+		{
+			objPlayer.currentArmor = 10
+		}
+	}
+	else
+	{
+		objPlayer.currentArmor = 0		
+	}
+
 	objPlayer.currentEnergy = objPlayer.maxEnergy
-	timerBuffer = game_get_speed(gamespeed_fps) * 3
-	bonusTimer = game_get_speed(gamespeed_fps) * 10
-	audio_play_sound(sfxRoundStart, 0, 0)
+	if ds_list_find_index(global.inventory, "Fancy Hat") > -1
+	{
+		objPlayer.currentMana += 2
+		audio_play_sound(choose(sfxManaGain1, sfxManaGain2, sfxManaGain3, sfxManaGain4, sfxManaGain5, sfxManaGain6), 0, 0)
+		if objPlayer.currentMana > 10
+		{
+			objPlayer.currentMana = 10
+		}
+	}
+	
+	if ds_list_find_index(global.inventory, "Flickering Flame") > -1
+	{
+		timerBuffer = 0
+	}
+	else
+	{
+		timerBuffer = game_get_speed(gamespeed_fps) * 5
+	}
+	bonusTimer = game_get_speed(gamespeed_fps) * 20
+	audio_play_sound(choose(sfxRoundStart1, sfxRoundStart2, sfxRoundStart3, sfxRoundStart4, sfxRoundStart5, sfxRoundStart6), 0, 0)
 
 
 	if !instance_exists(objEnemyParent)

@@ -1,9 +1,9 @@
 /// @description Insert description here
 // You can write your code in this editor
 
-name = "Error"
-description = "Error"
-price = 0
+name = "Empty"
+description = "Item pool has been emptied! Well done"
+price = 999
 isPurchased = false
 
 if instance_exists(objItemParent)
@@ -19,8 +19,6 @@ if instance_exists(objItemParent)
 		ds_list_add(global.tempList, itemSelected)
 		ds_list_delete(global.itemList, itemIndex)
 	}
-	
-
 }
 
 

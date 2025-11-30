@@ -81,7 +81,20 @@ switch(nextAttack)
 
 if currentHP <= 0
 {	
-	objPlayer.currentGold += gold
+	if ds_list_find_index(global.inventory, "Lucky Coin") > -1
+	{
+		var randomNumber = irandom_range(0, 100)
+		if randomNumber > 50
+		{
+			objPlayer.currentGold += ceil(gold * 2)
+		}
+	}
+	else
+	{
+		objPlayer.currentGold += gold
+	}	
+
+	objGameController.currentScore += scorePoints
 	
 	instance_destroy()
 }
