@@ -33,21 +33,9 @@ ini_close()
 switch (ability) 
 {
 	case "Empty":
-		//name = "Empty"
+		name = "Select Abilities in Main Menu"
 		sprite_index = sprEmpty
-		//damage = noone
-		//armor = noone
-		//energyCost = noone
-		//multitarget = false
-		//audio = noone
-		//canTargetEnemy = false
-		//canTargetPlayer = false
-		
-		//ignite = false
-		//frost = false
-		//drenched = false
-		//statusEffect = noone
-		//statusTurn = noone
+		energyCost = noone
 		break;
 	
 	case "MagicMissle":
@@ -59,7 +47,7 @@ switch (ability)
 		}
 		else
 		{
-			damage = 10
+			damage = 12
 		}
 		energyCost = 1
 		audio = sfxMagicMissle
@@ -73,11 +61,11 @@ switch (ability)
 		{
 			if ds_list_find_index(global.inventory, "Ceremonial Robes") > -1 && objPlayer.currentHP <= (objPlayer.maxHP / 2)
 			{
-				damage = ceil((objPlayer.currentMana * 3) * 1.25)
+				damage = ceil((objPlayer.currentMana * 4) * 1.25)
 			}
 			else
 			{
-				damage = (objPlayer.currentMana * 3)
+				damage = (objPlayer.currentMana * 4)
 			}
 		}
 

@@ -37,6 +37,14 @@ if instance_exists(objItemParent)
 				description = "SHATTER status now reduces enemies block by 50 percent"
 				price = 25
 		        break;
+				
+			case "Ice Dagger":
+				name = "Ice Dagger"
+				sprite_index = sprIceDagger
+				description = "WEAK status now reduces enemies block by 50 percent"
+				global.damageReduction = .50
+				price = 30
+				break;
 		
 			case "Boots of Swiftness":
 		        name = "Boots of Swiftness"
@@ -98,7 +106,7 @@ if instance_exists(objItemParent)
 				name = "Lucky Coin"
 				sprite_index = sprLuckyCoin
 				description = "50 Percent chance to double gold gained from kills"
-				price = 10
+				price = 5
 				break;
 				
 			case "Ceremonial Robes":

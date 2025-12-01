@@ -32,9 +32,4 @@ if position_meeting(mouse_x, mouse_y, objItemParent)
 		}
 		audio_play_sound(sfxWrong, 0, 0)
 	}
-	
-	if mouse_check_button_pressed(mb_right)
-	{
-		show_message_async(item.itemSelected)
-	}
 }

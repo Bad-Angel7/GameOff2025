@@ -7,7 +7,7 @@ audio_group_load(agMenuClick)
 global.itemList = ds_list_create()
 ds_list_add(global.itemList, "Incendiary Ring", "Wet Blade", "Boots of Swiftness", "Cloak of Displacement", "Crit Ring",
 "Ice Crystal", "Battlemage Armor", "Fancy Hat", "Sturdy Shield", "Delicious Strawberry", "Lucky Coin", "Ceremonial Robes",
-"Flickering Flame", "Lightning Necklace", )
+"Flickering Flame", "Lightning Necklace", "Ice Dagger")
 global.inventory = ds_list_create()
 
 global.tempList = ds_list_create()

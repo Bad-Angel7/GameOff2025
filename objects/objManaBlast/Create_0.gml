@@ -8,8 +8,8 @@ if ds_list_find_index(global.inventory, "Ceremonial Robes") > -1 && objPlayer.cu
 }
 else
 {
-	damage = "Mana X 3"
+	damage = "Mana X 4"
 }
-energyCost = 0
+energyCost = "All Mana"
 audio = sfxMagicMissle2
 canTargetEnemy = true

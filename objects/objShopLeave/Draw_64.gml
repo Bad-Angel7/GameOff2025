@@ -10,6 +10,7 @@ if position_meeting(mouse_x, mouse_y, objShopLeave)
 	{
 		room_goto(battleRoom)
 		audio_stop_all()
-		audio_play_sound(sfxBossThemeLoop, 0, true)
+		randomize()
+		audio_play_sound(choose(sfxBattleMusic1, sfxBattleMusic2, sfxBattleMusic1, sfxBattleMusic4, sfxBattleMusic5), 0, 0)
 	}
 }

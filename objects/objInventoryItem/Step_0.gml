@@ -19,6 +19,14 @@ switch (inventoryItem)
 		description = "SHATTER status now reduces enemies block by 50 percent"
 		global.armorReduction = .50
 		break;
+		
+	case "Ice Dagger":
+		name = "Ice Dagger"
+		sprite_index = sprIceDagger
+		image_alpha = 1
+		description = "WEAK status now reduces enemies block by 50 percent"
+		global.damageReduction = .50
+		break;
 			
 	case "Boots of Swiftness":
 	    name = "Boots of Swiftness"

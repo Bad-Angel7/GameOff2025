@@ -95,6 +95,7 @@ if global.currentAbility != noone
 	var textPanelCost = flexpanel_node_get_child(uiLayer, "EnergyNumber")
 	var textStructCost = flexpanel_node_get_struct(textPanelCost)
 	var textIDCost = textStructCost.layerElements[0].elementId
+	var textIDCost2 = textStructCost.layerElements[0].elementId
 	layer_text_text(textIDCost, global.currentAbility.energyCost)
 	
 	//Status

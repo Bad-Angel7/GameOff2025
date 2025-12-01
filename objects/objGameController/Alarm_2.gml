@@ -32,6 +32,15 @@ nextMana += (bonusTimer / 20)
 if nextMana >= 60
 {
 	nextMana -= 60
+	if ds_list_find_index(global.inventory, "Flickering Flame") > -1
+	{
+		nextMana += (bonusTimer/20)
+		if nextMana >= 60
+		{
+			nextMana -= 60
+			objPlayer.currentMana += 1
+		}
+	}
 	if objPlayer.currentMana < 11
 	{
 		objPlayer.currentMana += 1

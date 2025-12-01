@@ -25,7 +25,6 @@
 //	{
 //		room_goto(battleRoom)
 //		audio_stop_all()
-//		audio_play_sound(sfxMainThemeLoop, 0, true)
 //	}
 //}
 

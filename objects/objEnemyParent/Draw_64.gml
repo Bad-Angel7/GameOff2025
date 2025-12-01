@@ -1,8 +1,8 @@
 /// @description Insert description here
 // You can write your code in this editor
 
-draw_sprite_stretched(sprPlayerHealth, 0, healthbarx + 66, healthbary - 24, 32, 32)
-draw_text_ext_transformed(healthbarx + 64, healthbary, string(currentHP), 4, 64, 2, 2, 0)
+draw_sprite_stretched(sprPlayerHealth, 0, healthbarx + 66, healthbary - 32, 32, 32)
+draw_text_ext_transformed(healthbarx + 64, healthbary - 8, string(currentHP), 4, 64, 2, 2, 0)
 
 if damage != noone
 {
@@ -18,8 +18,8 @@ if armor != noone
 
 if currentArmor > 0
 {
-	draw_sprite_stretched(sprPlayerArmor, 0, healthbarx + 20, healthbary - 24, 32, 32)
-	draw_text_ext_transformed(healthbarx + 16, healthbary, string(currentArmor), 16, 64, 2, 2, 0)
+	draw_sprite_stretched(sprPlayerArmor, 0, healthbarx + 20, healthbary - 32, 32, 32)
+	draw_text_ext_transformed(healthbarx + 16, healthbary - 8, string(currentArmor), 16, 64, 2, 2, 0)
 }
 
 

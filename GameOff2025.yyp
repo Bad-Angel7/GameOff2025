@@ -231,6 +231,7 @@
     {"id":{"name":"sprHealthBar2","path":"sprites/sprHealthBar2/sprHealthBar2.yy",},},
     {"id":{"name":"sprHealthBarBorder","path":"sprites/sprHealthBarBorder/sprHealthBarBorder.yy",},},
     {"id":{"name":"sprIceCrystal","path":"sprites/sprIceCrystal/sprIceCrystal.yy",},},
+    {"id":{"name":"sprIceDagger","path":"sprites/sprIceDagger/sprIceDagger.yy",},},
     {"id":{"name":"sprIgnite","path":"sprites/sprIgnite/sprIgnite.yy",},},
     {"id":{"name":"sprIgnite2","path":"sprites/sprIgnite2/sprIgnite2.yy",},},
     {"id":{"name":"sprIgnite3","path":"sprites/sprIgnite3/sprIgnite3.yy",},},

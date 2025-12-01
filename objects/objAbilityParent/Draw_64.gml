@@ -84,6 +84,16 @@ if position_meeting(mouse_x, mouse_y, objAbilityParent)
 	layer_text_alpha(textIDCost, 1)
 	layer_sprite_alpha(textIDCost2, 1)
 	
+	if abilityHover.name == "Mana Blast"
+	{
+		layer_sprite_change(textIDCost2, sprMana)
+	}
+	else
+	{
+		layer_sprite_change(textIDCost2, sprEnergy)
+	}
+	
+	
 	//Status
 	var textPanelStatusType = flexpanel_node_get_child(uiLayer, "AbilityStatus")
 	var textStructStatusType = flexpanel_node_get_struct(textPanelStatusType)
