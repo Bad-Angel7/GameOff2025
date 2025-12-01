@@ -69,6 +69,7 @@ mainMenuTheme = function()
 {
 	if room = mainMenuRoom
 	{
+		randomize()
 		if audio_is_playing(choose(sfxAmbientTheme1, sfxAmbientTheme2, sfxAmbientTheme3, sfxAmbientTheme4, sfxAmbientTheme5,
 		sfxAmbientTheme6, sfxAmbientTheme7, sfxAmbientTheme8, sfxAmbientTheme9, sfxAmbientTheme10))
 		{
@@ -92,6 +93,7 @@ battleTheme = function()
 {
 	if room = battleRoom
 	{
+		randomize()
 		if audio_is_playing(choose(sfxBattleMusic1, sfxBattleMusic2, sfxBattleMusic1, sfxBattleMusic4, sfxBattleMusic5))
 		{
 			timer = 240

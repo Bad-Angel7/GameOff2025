@@ -95,8 +95,8 @@ if instance_exists(objPlayer)
 			
 			switch (nextEnemy) 
 			{
-			    case "Test":
-					instance_create_layer(spawnPoint.x, spawnPoint.y, "Instances", objEnemyTest)
+			    case "Frost Dog":
+					instance_create_layer(spawnPoint.x, spawnPoint.y, "Instances", objFrostDog)
 			        break;
 		
 				case "Skeleton":
